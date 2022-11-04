@@ -23,7 +23,7 @@
     <!-- header -->
     <!-- nav -->
     <div class="navbar">
-        <a class="active" href="{{ route('home') }}"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="{{ route('home') }}"><i class="fa fa-fw fa-home"></i> Home</a>
         <a href="{{ route('course.index') }}"><i class="fa fa-fw fa-pencil"></i> Courses</a>
         <a href="{{ route('group.index') }}"><i class="fa fa-fw fa-book"></i> Groups</a>
         <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
@@ -44,7 +44,7 @@
     body {
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
-        background: linear-gradient(0deg, rgba(255, 255, 255) 0%, rgba(76, 87, 83) 100%); 
+        background: linear-gradient(0deg, rgba(28, 27, 23) 0%, rgb(255, 255, 255) 100%); 
     }
 
     html {
@@ -54,7 +54,7 @@
     /* Style the navigation bar */
     .navbar {
         width: 100%;
-        background-color: #555;
+        background-color: rgb(30, 30, 30);
         overflow: auto;
     }
 
@@ -70,12 +70,12 @@
 
     /* Navbar links on mouse-over */
     .navbar a:hover {
-        background-color: #000;
+        background-color: rgba(164, 120, 93);
     }
 
     /* Current/active navbar link */
     .active {
-        background-color: #04AA6D;
+        background-color: rgba(164, 120, 93);
     }
 
     /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
@@ -84,5 +84,9 @@
             float: none;
             display: block;
         }
+    }
+
+    .navbar i {
+      color: rgba(164, 120, 93);
     }
 </style>

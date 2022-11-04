@@ -8,11 +8,12 @@
 
     <div class="about-section">
         <h1>About Us Page</h1>
-        <p>Some text about who we are and what we do.</p>
-        <p>Resize the browser window to see that this page is responsive by the way.</p>
+        <p>The Barber Academy is an educational platform which simplifies the administrative processes 
+            for students on the one hand, and offers students an accessible and flexible e-learning environment on the other.</p>
+        {{-- <p>Resize the browser window to see that this page is responsive by the way.</p> --}}
     </div>
 
-    <h2 style="text-align:center">Our Team</h2>
+    <br><h2 class="welcome">Our Team</h2>
     <div class="row">
         <div class="col-6">
             <div class="cards">
@@ -120,7 +121,7 @@
         padding: 50px;
         text-align: center;
         /* background-color: #474e5d; */
-        background: linear-gradient(0deg, rgba(164, 120, 93) 0%, rgba(28, 27, 23) 100%);
+        background: linear-gradient(0deg, rgb(255, 255, 255) -40%, rgb(0, 0, 0) 50%, rgb(255, 255, 255) 150%);
         color: white;
         text-shadow: black 0.1em 0.1em 0.2em
     }
