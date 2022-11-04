@@ -23,7 +23,7 @@
     <!-- header -->
     <!-- nav -->
     <div class="navbar">
-        <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a class="active" href="{{route('home')}}"><i class="fa fa-fw fa-home"></i> Home</a>
         <a href="{{route('course.index')}}"><i class="fa fa-fw fa-pencil"></i> Courses</a>
         <a href="{{route('group.index')}}"><i class="fa fa-fw fa-book"></i> Groups</a>
         <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>

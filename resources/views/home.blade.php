@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-6">
             <div class="card">
-                <img src="/w3images/team1.jpg" alt="Mateo" style="width:100%">
+                <img src="{{asset('profile-pic.png')}}" alt="Mateo" style="width:100%">
                 <div class="container">
                     <h2>Mateo Arboleda Vasco</h2>
                     <p class="title">Scrum Master</p>
@@ -86,7 +86,7 @@
 
     .card {
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-        margin: 8px;
+        margin: 100px;
     }
 
     .about-section {

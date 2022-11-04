@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 Route::controller(CourseController::class)->group(function() {
     Route::get('course', 'index')->name('course.index');
