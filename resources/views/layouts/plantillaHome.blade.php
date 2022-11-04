@@ -44,11 +44,7 @@
     body {
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
-<<<<<<< HEAD
-        background: linear-gradient(0deg, rgb(2, 2, 2) 0%, rgb(255, 255, 255) 100%);
-=======
-        background: linear-gradient(0deg, rgba(28, 27, 23) 0%, rgb(255, 255, 255) 100%); 
->>>>>>> c4363ca200b11cc008ca94b444cadae8b4721224
+        background: linear-gradient(0deg, rgba(28, 27, 23) 0%, rgb(255, 255, 255) 100%);
     }
 
     html {
