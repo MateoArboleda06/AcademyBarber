@@ -4,7 +4,8 @@
 
 @section('content')
 
-    <h1 class="welcome">Welcome to Barber Academy</h1>
+    {{-- <h1 class="welcome">Welcome to Barber Academy</h1> --}}
+    <div style="text-align: center"><img src="academ.png" alt="" style="width:35%" class="card-img-top"></div>
 
     <div class="about-section">
         <h1>About Us Page</h1>
