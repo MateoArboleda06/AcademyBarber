@@ -1,22 +1,34 @@
 @extends('layouts.plantilla')
 
-@section('tittle', 'Group Home')
+@section('title', 'Assignment')
 
 @section('content')
     <br>
-    <h1 class="welcome">Welcome to Groups</h1>
+    <h1 class="welcome">Assignment Teacher</h1>
 
     <div style="text-align: center">
-        <br>
-        <a href="{{ route('group.create') }}"><button class="button">Create Group</button></a>
+        <form action="{{ route('course.assignmentUp', $course) }}" method="post">
 
-        <ul>
-            @foreach ($groups as $group)
-                <li>
-                    <a href="{{ route('group.show', $group->id) }}">{{ $group->name }}</a>
-                </li>
-            @endforeach
-        </ul>
+            @csrf
+
+            @method('put')
+            <br>
+            <label>
+                Teacher Name:
+                <br>
+                <input type="text" name="teacher" value="{{ old('teacher') }}">
+            </label>
+
+            @error('teacher')
+                <br>
+                <small>*{{ $message }}</small>
+                <br>
+            @enderror
+
+            <br>
+            <br>
+            <button class="button" type="submit">Assignment Teacher</button>
+        </form>
     </div>
 @endsection
 

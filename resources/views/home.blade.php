@@ -4,7 +4,8 @@
 
 @section('content')
 
-    <h1 class="welcome">Welcome to Barber Academy</h1>
+    {{-- <h1 class="welcome">Welcome to Barber Academy</h1> --}}
+    <div style="text-align: center"><img src="academ.png" alt="" style="width:35%" class="card-img-top"></div>
 
     <div class="about-section">
         <h1>About Us Page</h1>
@@ -36,7 +37,7 @@
 
         {{--         <div class="col-6">
             <div class="card">
-                <img src="/w3images/team2.jpg" alt="Jose" style="width:100%">
+                <img src="{{asset('jose.jpeg')}}" alt="Jose" style="width:100%">
                 <div class="container">
                     <h2>Jose chaverra</h2>
                     <p class="title">Desarrollador</p>
