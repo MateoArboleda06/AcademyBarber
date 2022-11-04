@@ -122,6 +122,7 @@
         /* background-color: #474e5d; */
         background: linear-gradient(0deg, rgba(164, 120, 93) 0%, rgba(28, 27, 23) 100%);
         color: white;
+        text-shadow: black 0.1em 0.1em 0.2em
     }
 
     .container {
