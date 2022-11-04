@@ -44,13 +44,23 @@
     body {
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
+<<<<<<< HEAD
         background: linear-gradient(0deg, rgba(255, 255, 255) 0%, rgba(76, 87, 83) 100%); 
+=======
+>>>>>>> prueba
     }
 
     html {
         box-sizing: border-box;
     }
 
+<<<<<<< HEAD
+=======
+    .title {
+        color: grey;
+    }
+    
+>>>>>>> prueba
     /* Style the navigation bar */
     .navbar {
         width: 100%;
