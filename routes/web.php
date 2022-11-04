@@ -23,10 +23,12 @@ Route::controller(CourseController::class)->group(function() {
     Route::get('course/create', 'create')->name('course.create');
     Route::get('course/{id}', 'show')->name('course.show');
     Route::get('course/{id}/edit', 'edit')->name('course.edit');
+    Route::get('course/{id}/assignment', 'assignment')->name('course.assignment');
 
     Route::post('course', 'store')->name('course.store');
 
-    Route::put('course/{id}', 'update')->name('course.update');
+    Route::put('course/{id}/update', 'update')->name('course.update');
+    Route::put('course/{id}', 'assignmentUp')->name('course.assignmentUp');
 
     Route::delete('course/{id}', 'destroy')->name('course.destroy');
 });

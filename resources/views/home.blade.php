@@ -29,7 +29,7 @@
 
         <div class="col-6">
             <div class="card">
-                <img src="/w3images/team2.jpg" alt="Jose" style="width:100%">
+                <img src="{{asset('jose.jpeg')}}" alt="Jose" style="width:100%">
                 <div class="container">
                     <h2>Jose chaverra</h2>
                     <p class="title">Desarrollador</p>

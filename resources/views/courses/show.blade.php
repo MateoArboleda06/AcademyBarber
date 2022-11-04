@@ -6,7 +6,9 @@
     <h1>Welcome to Course {{ $course->name }}</h1>
     <a href="{{ route('course.index') }}">Back to Courses</a>
     <br>
-    <a href="{{ route('course.edit', $course) }}">Edit Course</a>
+    <a href="{{ route('course.edit', $course->id) }}">Edit Course</a>
+    <br>
+    <a href="{{ route('course.assignment', $course->id) }}">Assignment</a>
     <p><strong>Semester: </strong>{{ $course->semester }}</p>
     <p>{{ $course->description }}</p>
 

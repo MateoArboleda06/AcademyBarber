@@ -55,7 +55,6 @@ class CourseController extends Controller
 
      public function update($id, Request $request){
 
-
         $request->validate([
             'name' => 'required',
             'semester'=> 'required',
@@ -76,12 +75,31 @@ class CourseController extends Controller
 
     }
 
-    /* public function destroy($id){
+    public function destroy($id){
 
-        $curso = Curso::find($id);
+        $course = Course::find($id);
 
-        $curso->delete();
+        $course->delete();
 
-        return redirect()->route('cursos.index');
-    } */
+        return redirect()->route('course.index');
+    }
+
+    public function assignment($id, Request $request){
+        $course = Course::find($id);
+
+        return view('courses.assignment', compact('course'));
+    }
+
+    public function assignmentUp($id, Request $request){
+
+        $request->validate([
+            'teacher' => 'required'
+        ]);
+
+        $course = Course::find($id);
+
+        $course->update($request->all());
+
+        return redirect()->route('course.show', $course);
+    }
 }

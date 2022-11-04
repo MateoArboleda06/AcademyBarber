@@ -4,7 +4,8 @@
 
 @section('content')
     <h1>Edit Course</h1>
-    <form action="{{ route('course.update', $course) }}" method="POST">
+
+    <form action="{{route('course.update', $course) }}" method="POST">
 
         @csrf
 
