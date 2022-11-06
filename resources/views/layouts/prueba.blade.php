@@ -40,21 +40,21 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{ route('home') }}">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Home</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{ route('course.index') }}">
                             <i class='bx bxs-edit icon'></i>
                             <span class="text nav-text">Courses</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{ route('group.index') }}">
                             <i class='bx bx-group icon'></i>
                             <span class="text nav-text">Groups</span>
                         </a>
