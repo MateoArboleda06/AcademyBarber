@@ -1,4 +1,4 @@
-@extends('layouts.plantilla')
+@extends('layouts.prueba')
 
 @section('title', 'Courses')
 
@@ -26,29 +26,31 @@
             </div>
         </div>
     @endforeach --}}
+    <div class="row">
+        <div class="col-6">
+            @foreach ($courses as $course)
+                <div class="cont">
+                    <div class="cards" style="width: 18rem;">
+                        <div class="box">
+                            <div class="content">
+                                <img src="academ.png" alt="" style="width:100%">
+                                <div class="card-body">
+                                    <center>
+                                        <a href="{{ route('course.show', $course) }}"><button
+                                                class="button">{{ $course->name }}</button></a>
+                                        <p class="title"><strong>Semester:</strong>{{ $course->semester }}</p>
+                                        <p class="card-text"><strong>Teacher: </strong>{{ $course->teacher }}</p>
+                                        <p class="card-text">{{ $course->description }}</p>
+                                    </center>
 
-    @foreach ($courses as $course)
-        <div class="cont">
-            <div class="cards" style="width: 18rem;">
-                <div class="box">
-                    <div class="content">
-                        <img src="academ.png" alt="" style="width:100%" class="card-img-top">
-                        <div class="card-body">
-                            <center>
-                                <a href="{{ route('course.show', $course) }}"><button
-                                        class="button">{{ $course->name }}</button></a>
-                                <p class="title"><strong>Semester:</strong>{{ $course->semester }}</p>
-                                <p class="card-text"><strong>Teacher: </strong>{{ $course->teacher }}</p>
-                                <p class="card-text">{{ $course->description }}</p>
-                            </center>
-
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-    @endforeach
-
+    </div>
 
     {{-- {{ $courses->links() }} --}}
 @endsection

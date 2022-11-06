@@ -22,13 +22,24 @@
 <body>
     <!-- header -->
     <!-- nav -->
-    <div class="navbar">
+    {{--     <nav class="navbar">
         <a href="{{ route('home') }}"><i class="fa fa-fw fa-home"></i> Home</a>
         <a href="{{ route('course.index') }}"><i class="fa fa-fw fa-pencil"></i> Courses</a>
         <a href="{{ route('group.index') }}"><i class="fa fa-fw fa-book"></i> Groups</a>
         <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
         <a href="#"><i class="fa fa-fw fa-user"></i> My Profile</a>
-    </div>
+    </nav> --}}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="{{ route('home') }}"><i class="fa fa-fw fa-home"></i> Home</a>
+                <a href="{{ route('course.index') }}"><i class="fa fa-fw fa-pencil"></i> Courses</a>
+                <a href="{{ route('group.index') }}"><i class="fa fa-fw fa-book"></i> Groups</a>
+                <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+                <a href="#"><i class="fa fa-fw fa-user"></i> My Profile</a>
+            </div>
+        </div>
+    </nav>
 
     @yield('content')
 
@@ -41,7 +52,7 @@
 </html>
 
 <style>
-/*     body {
+    /*     body {
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
     } */
@@ -88,6 +99,6 @@
 
     /*Jose*/
     .navbar i {
-      color: rgba(164, 120, 93);
+        color: rgba(164, 120, 93);
     }
 </style>
