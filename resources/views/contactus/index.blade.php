@@ -1,33 +1,39 @@
 @extends('layouts.prueba')
 
-@section('title', 'Assignment')
+@section('title', 'Contact Us')
 
 @section('content')
     <br>
-    <h1 class="welcome">Assignment Teacher</h1>
+    <h1 class="welcome">Contact Us</h1>
 
     <div style="text-align: center">
-        <form action="{{ route('course.assignmentUp', $course) }}" method="post">
+        <br>
+        <form action="{{route('contactUs.store')}}" method="POST">
 
             @csrf
 
-            @method('put')
+            <label>
+                Name:
+                <br>
+                <input type="text" name="name">
+            </label>
+            <br>
             <br>
             <label>
-                Teacher Name:
+                Mail:
                 <br>
-                <input type="text" name="teacher" value="{{ old('teacher') }}">
+                <input type="text" name="mail">
             </label>
-
-            @error('teacher')
-                <br>
-                <small>*{{ $message }}</small>
-                <br>
-            @enderror
-
             <br>
             <br>
-            <button class="button" type="submit">Assignment Teacher</button>
+            <label>
+                Message:
+                <br>
+                <textarea name="message" rows="4"></textarea>
+            </label>
+            <br>
+            <br>
+            <button class="button" type="submit">Send Message</button>
         </form>
     </div>
 @endsection

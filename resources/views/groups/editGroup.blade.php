@@ -1,4 +1,4 @@
-@extends('layouts.plantilla')
+@extends('layouts.prueba')
 
 @section('title', 'Edit Group')
 

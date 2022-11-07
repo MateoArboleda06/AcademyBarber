@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\HomeController;
@@ -47,3 +48,6 @@ Route::controller(GroupController::class)->group(function() {
 
     Route::delete('group/{id}', 'destroy')->name('group.destroy');
 });
+
+Route::get('contactus', [ContactUsController::class, 'index'])->name('contactUs.index');
+Route::post('contactus', [ContactUsController::class, 'store'])->name('contactUs.store');
