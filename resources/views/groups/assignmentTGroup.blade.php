@@ -1,30 +1,33 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Group')
+@section('title', 'Assignment Teacher')
 
 @section('content')
     <br>
-    <h1 class="welcome">Welcome to Group {{ $group->name }}</h1>
+    <h1 class="welcome">Assignment Teacher</h1>
 
     <div style="text-align: center">
-        <br>
-        <a href="{{ route('group.index') }}"><button class="button">Back to Groups</button></a>
-        <br>
-        <br>
-        <a href="{{ route('group.edit', $group->id) }}"><button class="button">Edit Group</button></a>
-        <br>
-        <br>
-        <a href="{{ route('group.assignmentTeacher', $group->id) }}"><button class="button">Assignment Teacher</button></a>
-        <a href="{{-- {{ route('group.assignment', $group->id) }} --}}"><button class="button">Assignment Students</button></a>
-        <br>
-        <br>
-        <p class="showinfo"><strong>Teacher: </strong>{{ $group->teacher }}</p>
-        <p class="showinfo"><strong>Students: </strong>{{ $group->students }}</p>
+        <form action="{{ route('group.assignmentUpTeacher', $group) }}" method="post">
 
-        <form action="{{ route('group.destroy', $group) }}" method="POST">
             @csrf
-            @method('delete')
-            <button class="button" type="submit">Delete</button>
+
+            @method('put')
+            <br>
+            <label>
+                Teacher Name:
+                <br>
+                <input type="text" name="teacher" value="{{ old('teacher') }}">
+            </label>
+
+            @error('teacher')
+                <br>
+                <small>*{{ $message }}</small>
+                <br>
+            @enderror
+
+            <br>
+            <br>
+            <button class="button" type="submit">Assignment Teacher</button>
         </form>
     </div>
 @endsection
@@ -34,10 +37,6 @@
         text-align: center;
         color: white;
         text-shadow: black 0.1em 0.1em 0.2em
-    }
-
-    .showinfo {
-        color: white;
     }
 
     /*button*/

@@ -38,10 +38,12 @@ Route::controller(GroupController::class)->group(function() {
     Route::get('group/create', 'create')->name('group.create');
     Route::get('group/{id}', 'show')->name('group.show');
     Route::get('group/{id}/edit', 'edit')->name('group.edit');
+    Route::get('group/{id}/assignmentTeacher', 'assignmentTeacher')->name('group.assignmentTeacher');
 
     Route::post('group', 'store')->name('group.store');
 
-    Route::put('group/{id}', 'update')->name('group.update');
+    Route::put('group/{id}/update', 'update')->name('group.update');
+    Route::put('group/{id}', 'assignmentUpTeacher')->name('group.assignmentUpTeacher');
 
     Route::delete('group/{id}', 'destroy')->name('group.destroy');
 });

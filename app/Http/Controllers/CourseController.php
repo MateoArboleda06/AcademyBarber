@@ -84,7 +84,7 @@ class CourseController extends Controller
         return redirect()->route('course.index');
     }
 
-    public function assignment($id, Request $request){
+    public function assignment($id){
         $course = Course::find($id);
 
         return view('courses.assignment', compact('course'));

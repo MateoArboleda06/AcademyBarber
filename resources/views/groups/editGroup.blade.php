@@ -1,30 +1,32 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Group')
+@section('title', 'Edit Group')
 
 @section('content')
     <br>
-    <h1 class="welcome">Welcome to Group {{ $group->name }}</h1>
+    <h1 class="welcome">Edit Group</h1>
 
     <div style="text-align: center">
-        <br>
-        <a href="{{ route('group.index') }}"><button class="button">Back to Groups</button></a>
-        <br>
-        <br>
-        <a href="{{ route('group.edit', $group->id) }}"><button class="button">Edit Group</button></a>
-        <br>
-        <br>
-        <a href="{{ route('group.assignmentTeacher', $group->id) }}"><button class="button">Assignment Teacher</button></a>
-        <a href="{{-- {{ route('group.assignment', $group->id) }} --}}"><button class="button">Assignment Students</button></a>
-        <br>
-        <br>
-        <p class="showinfo"><strong>Teacher: </strong>{{ $group->teacher }}</p>
-        <p class="showinfo"><strong>Students: </strong>{{ $group->students }}</p>
+        <form action="{{ route('group.update', $group) }}" method="POST">
 
-        <form action="{{ route('group.destroy', $group) }}" method="POST">
             @csrf
-            @method('delete')
-            <button class="button" type="submit">Delete</button>
+
+            @method('put')
+            <br>
+            <label>
+                Group Name:
+                <br>
+                <input type="text" name="name" value="{{ old('name', $group->name) }}">
+            </label>
+
+            @error('name')
+                <br>
+                <small>*{{ $message }}</small>
+                <br>
+            @enderror
+            <br>
+            <br>
+            <button class="button" type="submit">Update Group</button>
         </form>
     </div>
 @endsection
