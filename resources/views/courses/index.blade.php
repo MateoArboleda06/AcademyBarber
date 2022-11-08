@@ -26,31 +26,29 @@
             </div>
         </div>
     @endforeach --}}
-    <div class="row">
-        <div class="col-6">
-            @foreach ($courses as $course)
-                <div class="cont">
-                    <div class="cards" style="width: 18rem;">
-                        <div class="box">
-                            <div class="content">
-                                <img src="academ.png" alt="" style="width:100%">
-                                <div class="card-body">
-                                    <center>
-                                        <a href="{{ route('course.show', $course) }}"><button
-                                                class="button">{{ $course->name }}</button></a>
-                                        <p class="title"><strong>Semester:</strong>{{ $course->semester }}</p>
-                                        <p class="card-text"><strong>Teacher: </strong>{{ $course->teacher }}</p>
-                                        <p class="card-text">{{ $course->description }}</p>
-                                    </center>
 
-                                </div>
-                            </div>
+    @foreach ($courses as $course)
+        <div class="row cont column">
+            <div class="cards" style="width: 18rem;">
+                <div class="box">
+                    <div class="content">
+                        <img src="academ.png" alt="" style="width:100%">
+                        <div class="card-body">
+                            <center>
+                                <a href="{{ route('course.show', $course) }}"><button
+                                        class="button">{{ $course->name }}</button></a>
+                                <p class="title"><strong>Semester:</strong>{{ $course->semester }}</p>
+                                <p class="card-text"><strong>Teacher: </strong>{{ $course->teacher }}</p>
+                                <p class="card-text">{{ $course->description }}</p>
+                            </center>
+
                         </div>
                     </div>
                 </div>
-            @endforeach
+            </div>
         </div>
-    </div>
+    @endforeach
+
 
     {{-- {{ $courses->links() }} --}}
 @endsection
@@ -127,6 +125,48 @@
 
     /*Cards*/
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
+
+    /*     * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        min-height: 100vh;
+        background: #232427;
+    }
+
+    body .cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 40px 0;
+    } */
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+    }
+
+    /* Remove extra left and right margins, due to padding in columns */
+    .row {
+        margin: 0 -5px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 
     body .cont .cards {
         position: relative;
