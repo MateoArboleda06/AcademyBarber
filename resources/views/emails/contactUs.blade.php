@@ -9,5 +9,15 @@
 <body>
     <h1>Correo electronico</h1>
     <p>contenido del correo</p>
+
+    <p><strong>Name: </strong> {{ $contact['name'] }} </p>
+    <p><strong>Email: </strong> {{ $contact['email'] }} </p>
+    <p><strong>Message: </strong> {{ $contact['message'] }} </p>
 </body>
 </html>
+
+<style>
+    h1{
+        color: red;
+    }
+</style>

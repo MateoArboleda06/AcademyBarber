@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\ContactUsMailable;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Support\Facades\Mail;
 
 class ContactUsController extends Controller
@@ -13,12 +14,18 @@ class ContactUsController extends Controller
         return view('contactus.index');
     }
 
-    public function store(){
+    public function store(Request $request){
 
-        $correo = new ContactUsMailable;
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
+
+        $correo = new ContactUsMailable($request->all());
 
         Mail::to('teo.arb03@gmail.com')->send($correo);
 
-        return "Mensaje enviado";
+        return redirect()->route('contactUs.index')->with('info', 'Message Sent');
     }
 }

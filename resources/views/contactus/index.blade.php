@@ -17,25 +17,43 @@
                 <br>
                 <input type="text" name="name">
             </label>
-            <br>
-            <br>
+
+            @error('name')
+                <p><small> {{ $message }} </small></p>
+            @enderror
+            <br><br>
+
             <label>
-                Mail:
+                Email:
                 <br>
-                <input type="text" name="mail">
+                <input type="text" name="email">
             </label>
-            <br>
-            <br>
+
+            @error('email')
+                <p><small> {{ $message }} </small></p>
+            @enderror
+            <br><br>
+
             <label>
                 Message:
                 <br>
                 <textarea name="message" rows="4"></textarea>
             </label>
-            <br>
-            <br>
+
+            @error('message')
+                <p><small> {{ $message }} </small></p>
+            @enderror
+            <br><br>
+
             <button class="button" type="submit">Send Message</button>
         </form>
     </div>
+
+    @if (session('info'))
+        <script>
+            alert("{{ session('info') }}");
+        </script>
+    @endif
 @endsection
 
 <style>
