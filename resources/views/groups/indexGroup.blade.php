@@ -12,30 +12,26 @@
         </a>
     </div>
 
-    <div class="row">
-        <div class="col-6">
-            @foreach ($groups as $group)
-                <div class="cont">
-                    <div class="cards" style="width: 18rem;">
-                        <div class="box">
-                            <div class="content">
-                                <img src="academ.png" alt="" style="width:100%">
-                                <div class="card-body">
-                                    <center>
-                                        <a href="{{ route('group.show', $group) }}"><button
-                                                class="button">{{ $group->name }}</button></a>
-                                        <p class="card-text"><strong>Teacher: </strong>{{ $group->teacher }}</p>
-                                        <p class="card-text"><strong>Students: </strong>{{ $group->students }}</p>
-                                    </center>
-
-                                </div>
-                            </div>
+    @foreach ($groups as $group)
+        <div class="row cont column">
+            <div class="cards" style="width: 18rem;">
+                <div class="box">
+                    <div class="content">
+                        <img src="academ.png" alt="" style="width:100%">
+                        <div class="card-body">
+                            <center>
+                                <a href="{{ route('group.show', $group) }}"><button
+                                        class="button">{{ $group->name }}</button></a>
+                                <p class="card-text"><strong>Teacher: </strong>{{ $group->teacher }}</p>
+                                <p class="card-text"><strong>Students: </strong>{{ $group->students }}</p>
+                            </center>
                         </div>
                     </div>
                 </div>
-            @endforeach
+            </div>
         </div>
-    </div>
+    @endforeach
+
 
     {{-- {{ $courses->links() }} --}}
 @endsection
@@ -111,6 +107,25 @@
     }
 
     /*Cards*/
+
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+    }
+
+    /* Remove extra left and right margins, due to padding in columns */
+    .row {
+        margin: 0 -5px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 
     body .cont .cards {
