@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <div class="col-6">
+{{--         <div class="col-6">
             <div class="cards">
                 <div class="face front">
                     <img src="{{ asset('jose.png') }}" alt="Fernando" style="width:100%">
@@ -102,7 +102,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
 
