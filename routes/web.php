@@ -51,3 +51,13 @@ Route::controller(GroupController::class)->group(function() {
 
 Route::get('contactus', [ContactUsController::class, 'index'])->name('contactUs.index');
 Route::post('contactus', [ContactUsController::class, 'store'])->name('contactUs.store');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
