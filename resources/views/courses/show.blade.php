@@ -1,8 +1,4 @@
-@extends('layouts.prueba')
-
-@section('title', 'Course')
-
-@section('content')
+<x-app-layout>
     <br>
     <h1 class="welcome">Welcome to Course {{ $course->name }}</h1>
 
@@ -27,7 +23,7 @@
             <button class="button" type="submit">Delete</button>
         </form>
     </div>
-@endsection
+</x-app-layout>
 
 <style>
     .welcome {
@@ -37,7 +33,7 @@
     }
 
     .showinfo {
-        color: white;
+        color: black;
     }
 
     /*button*/

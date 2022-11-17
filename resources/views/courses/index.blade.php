@@ -1,57 +1,39 @@
-@extends('layouts.prueba')
+<x-app-layout>
 
-@section('title', 'Courses')
-
-@section('content')
-    <br>
-    <h1 class="welcome">Welcome to Courses</h1>
-    <br>
-    <div style="text-align: center">
-        <a href="{{ route('course.create') }}">
-            <button class="button">Create Course</button>
-        </a>
-    </div>
-
-    {{--     @foreach ($courses as $course)
-        <div class="card" style="width: 18rem;">
-            <img src="bacedm.png" alt="" style="width:100%" class="card-img-top">
-            <div class="card-body">
-                <center>
-                    <a href="{{ route('course.show', $course) }}"><button class="button">{{ $course->name }}</button></a>
-                    <p class="title"><strong>Semester:</strong>{{ $course->semester }}</p>
-                    <p class="card-text"><strong>Teacher: </strong>{{ $course->teacher }}</p>
-                    <p class="card-text">{{ $course->description }}</p>
-                </center>
-
-            </div>
+    <div>
+        <h1 class="welcome">Welcome to Courses</h1>
+        <br>
+        <div style="text-align: center">
+            <a href="{{ route('course.create') }}">
+                <button class="button">Create Course</button>
+            </a>
         </div>
-    @endforeach --}}
 
-    @foreach ($courses as $course)
-        <div class="row cont column">
-            <div class="cards" style="width: 18rem;">
-                <div class="box">
-                    <div class="content">
-                        <img src="academ.png" alt="" style="width:100%">
-                        <div class="card-body">
-                            <center>
-                                <a href="{{ route('course.show', $course) }}"><button
-                                        class="button">{{ $course->name }}</button></a>
-                                <p class="title"><strong>Semester:</strong>{{ $course->semester }}</p>
-                                <p class="card-text"><strong>Teacher: </strong>{{ $course->teacher }}</p>
-                                <p class="card-text">{{ $course->description }}</p>
-                            </center>
+        @foreach ($courses as $course)
+            <div class="row cont column">
+                <div class="cards" style="width: 18rem;">
+                    <div class="box">
+                        <div class="content">
+                            <img src="academ.png" alt="" style="width:100%">
+                            <div class="card-body">
+                                <center>
+                                    <a href="{{ route('course.show', $course) }}">
+                                        <button class="button">{{ $course->name }}</button>
+                                    </a>
+                                    <p class="title"><strong>Semester:</strong>{{ $course->semester }}</p>
+                                    <p class="card-text"><strong>Teacher: </strong>{{ $course->teacher }}</p>
+                                    <p class="card-text">{{ $course->description }}</p>
+                                </center>
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    @endforeach
+        @endforeach
+    </div>
 
-
-    {{-- {{ $courses->links() }} --}}
-@endsection
+</x-app-layout>
 
 <style>
     *,
@@ -80,8 +62,9 @@
     /*Jose*/
     .welcome {
         text-align: center;
-        color: white;
-        text-shadow: black 0.1em 0.1em 0.2em
+        color: black;
+        text-shadow: black 0.1em 0.1em 0.2em;
+        font-size: 28px; 
     }
 
     /*     .button {

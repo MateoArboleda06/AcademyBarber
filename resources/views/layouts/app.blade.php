@@ -26,9 +26,15 @@
         @livewire('navigation')
 
         <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <main>
+                        {{ $slot }}
+                    </main>
+                </div>
+            </div>
+        </div>
     </div>
 
     @stack('modals')
@@ -46,10 +52,6 @@
     }
 
     body {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
         background: linear-gradient(0deg, rgba(28, 27, 23) 0%, rgb(255, 255, 255) 100%);
