@@ -12,9 +12,9 @@
     <br>
     <h2 class="welcome">Our Team</h2>
 
-    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
 
-        <div class="rounded overflow-hidden shadow-lg">
+        <div class="">
             <div class="cards">
                 <div class="face front">
                     <img src="{{ asset('profile-pic.png') }}" alt="Mateo" style="width:100%">
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <div class="rounded overflow-hidden shadow-lg">
+        <div class="">
             <div class="cards">
                 <div class="face front">
                     <img src="{{ asset('jose.png') }}" alt="Jose" style="width:100%">
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div class="rounded overflow-hidden shadow-lg">
+        <div class="">
             <div class="cards">
                 <div class="face front">
                     <img src="{{ asset('juan.png') }}" alt="Juan" style="width:100%">
