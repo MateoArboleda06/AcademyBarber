@@ -1,9 +1,5 @@
-@extends('layouts.prueba')
+<x-app-layout>
 
-@section('title', 'Create Group')
-
-@section('content')
-    <br>
     <h1 class="welcome">Create Group</h1>
 
     <div style="text-align: center">
@@ -67,7 +63,8 @@
             <button class="button" type="submit">Create Group</button>
         </form>
     </div>
-@endsection
+
+</x-app-layout>
 
 <style>
     .welcome {

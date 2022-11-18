@@ -1,9 +1,5 @@
-@extends('layouts.prueba')
+<x-app-layout>
 
-@section('title', 'Assignment')
-
-@section('content')
-    <br>
     <h1 class="welcome">Assignment Teacher</h1>
 
     <div style="text-align: center">
@@ -30,7 +26,8 @@
             <button class="button" type="submit">Assignment Teacher</button>
         </form>
     </div>
-@endsection
+
+</x-app-layout>
 
 <style>
     .welcome {

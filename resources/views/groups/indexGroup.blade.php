@@ -1,9 +1,5 @@
-@extends('layouts.prueba')
+<x-app-layout>
 
-@section('title', 'Groups')
-
-@section('content')
-    <br>
     <h1 class="welcome">Welcome to Group</h1>
     <br>
     <div style="text-align: center">
@@ -32,9 +28,7 @@
         </div>
     @endforeach
 
-
-    {{-- {{ $courses->links() }} --}}
-@endsection
+</x-app-layout>
 
 <style>
     *,
