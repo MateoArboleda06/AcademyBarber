@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,8 @@ Route::controller(GroupController::class)->group(function() {
 
 Route::get('contactus', [ContactUsController::class, 'index'])->name('contactUs.index');
 Route::post('contactus', [ContactUsController::class, 'store'])->name('contactUs.store');
+
+Route::get('student', [StudentController::class, 'index'])->name('student.index');
 
 Route::middleware([
     'auth:sanctum',

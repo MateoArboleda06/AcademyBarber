@@ -3,11 +3,11 @@
     <div>
         <h1 class="welcome">Welcome to Courses</h1>
         <br>
-        <div class="flex justify-center">
+{{--         <div class="flex justify-center">
             <a href="{{ route('course.create') }}">
                 <button class="button">Create Course</button>
             </a>
-        </div>
+        </div> --}}
 
         @foreach ($courses as $course)
             <div class="row cont column">
@@ -18,7 +18,7 @@
                             <div class="card-body">
                                 <center>
                                     <a href="{{ route('course.show', $course) }}">
-                                        <button class="button1">{{ $course->name }}</button>
+                                        <button class="button">{{ $course->name }}</button>
                                     </a>
 
 
@@ -109,7 +109,7 @@
     }
 
     .button1 {
-        width: 75%;
+        width: 70%;
         background: linear-gradient(to bottom right, rgba(164, 120, 93), rgba(28, 27, 23));
         border: 0;
         border-radius: 12px;
@@ -174,7 +174,7 @@
 
     /* Remove extra left and right margins, due to padding in columns */
     .row {
-        margin: 0 -5px;
+        margin: 0 35px;
     }
 
     /* Clear floats after the columns */
@@ -186,8 +186,8 @@
 
     body .cont .cards {
         position: relative;
-        min-width: 320px;
-        height: 440px;
+        min-width: 340px;
+        height: 480px;
         box-shadow: inset 5px 5px 5px rgba(242, 237, 237, 0.2),
             inset -5px -5px 15px rgba(255, 255, 255, 0.1),
             5px 5px 15px rgba(243, 240, 240, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
