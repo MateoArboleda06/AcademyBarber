@@ -7,21 +7,19 @@
         <a href="{{ route('course.index') }}"><button class="button">Back to Courses</button></a>
         <br>
         <br>
-        <a href="{{ route('course.edit', $course->id) }}"><button class="button">Edit Course</button></a>
-        <br>
-        <br>
-        <a href="{{ route('course.assignment', $course->id) }}"><button class="button">Assignment</button></a>
-        <br>
-        <br>
         <p class="showinfo"><strong>Semester: </strong>{{ $course->semester }}</p>
         <p class="showinfo">{{ $course->description }}</p>
         <p class="showinfo"><strong>Teacher: </strong>{{ $course->teacher }}</p>
+        <br>
 
-        <form action="{{ route('course.destroy', $course) }}" method="POST">
-            @csrf
-            @method('delete')
-            <button class="button" type="submit">Delete</button>
-        </form>
+        <a href="#"><button class="button">Seguimiento</button></a>
+        <br>
+        <br>
+        <a href="#"><button class="button">Parcial 1</button></a>
+        <br>
+        <br>
+        <a href="#"><button class="button">Parcial 2</button></a>
+
     </div>
 </x-app-layout>
 

@@ -3,11 +3,6 @@
     <div>
         <h1 class="welcome">Welcome to Courses</h1>
         <br>
-        <div style="text-align: center">
-            <a href="{{ route('course.create') }}">
-                <button class="button">Create Course</button>
-            </a>
-        </div>
 
         @foreach ($courses as $course)
             <div class="row cont column">

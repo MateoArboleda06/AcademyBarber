@@ -9,5 +9,10 @@ class Group extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'teacher',
+        'students',
+        'course'
+    ];
 }
