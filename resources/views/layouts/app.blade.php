@@ -36,14 +36,14 @@
 <body class="font-sans antialiased">
     <x-jet-banner />
 
-    <div class="min-h-screen bg-gray-100">
+    <div {{-- class="min-h-screen bg-gray-100" --}}>
 
         @livewire('navigation')
 
         <!-- Page Content -->
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="to-blue-500 overflow-hidden shadow-xl sm:rounded-lg">
                     <main>
                         {{ $slot }}
                     </main>
@@ -69,7 +69,7 @@
     body {
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
-        background: linear-gradient(0deg, rgba(28, 27, 23) 0%, rgb(255, 255, 255) 100%);
+        background: linear-gradient(0deg, rgba(84, 49, 27) 0%, rgb(255, 255, 255) 150%);
     }
 
     html {
@@ -85,7 +85,7 @@
         padding: 50px;
         text-align: center;
         /* background-color: #474e5d; */
-        background: linear-gradient(0deg, rgb(255, 255, 255) -40%, rgb(0, 0, 0) 50%, rgb(255, 255, 255) 150%);
+        background: linear-gradient(0deg, rgb(255, 255, 255) -60%, rgb(84, 49, 27) 50%, rgb(255, 255, 255) 150%);
         color: white;
         text-shadow: black 0.1em 0.1em 0.2em
     }
