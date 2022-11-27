@@ -9,6 +9,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Scripts -->
@@ -70,6 +73,10 @@
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
         background: linear-gradient(0deg, rgba(84, 49, 27) 0%, rgb(255, 255, 255) 150%);
+    }
+
+    body.dark {
+        background: #111111;
     }
 
     html {
@@ -213,5 +220,25 @@
 
     .cards:hover .back {
         transform: perspective(600px) rotateY(360deg);
+    }
+
+    /*Switch*/
+    .switch {
+        background: #343D5B;
+        border-radius: 1000px;
+        border: none;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        outline: none;
+
+        span {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            display: block;
+            background: none;
+            color: #fff;
+        }
     }
 </style>
