@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Admin')
+@section('title', 'Admin Groups')
 
 @section('content_header')
     <h1>List Groups</h1>
@@ -18,6 +18,7 @@
 
         <div class="card-header">
             <a class="btn btn-secondary" href="{{ route('admin.groups.create') }}">Create Group</a>
+            <a class="btn btn-secondary" href="{{ route('form_asigned') }}">Asignement</a>
         </div>
 
         <div class="card-body">
@@ -49,6 +50,9 @@
 
                                     <button class="btn btn-danger btn-sm" type="submit">Delete</button>
                                 </form>
+                            </td>
+                            <td>
+
                             </td>
                         </tr>
                     @endforeach

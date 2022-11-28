@@ -316,18 +316,18 @@ return [
         [
             'text'        => 'Admin',
             'route'       => 'admin.home',
-            'icon'        => 'fas fa-tachometer-alt fa-fw',
+            'icon'        => 'fas fa-tachometer-alt fa-spin fa-fw',
         ],
         ['header' => 'ADMINISTRATOR'],
         [
             'text' => 'Courses',
             'route'  => 'admin.courses.index',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon' => 'fab fa-fw fa-buffer fa-spin',
         ],
         [
             'text' => 'Groups',
             'route'  => 'admin.groups.index',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon' => 'fab fa-fw fa-buffer fa-spin',
         ],
         
         ['header' => 'labels'],

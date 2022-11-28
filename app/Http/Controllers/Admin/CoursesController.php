@@ -30,7 +30,7 @@ class CoursesController extends Controller
     {
         $usuarios = DB::table('users')
                         ->select('name', 'id')
-                        ->pluck('name', 'id');
+                        ->pluck('name', 'name');
 
         return view('admin.courses.create', compact('usuarios'));
         
@@ -81,7 +81,7 @@ class CoursesController extends Controller
     {
         $usuarios = DB::table('users')
                         ->select('name', 'id')
-                        ->pluck('name', 'id');
+                        ->pluck('name', 'name');
 
         return view('admin.courses.edit', compact('course', 'usuarios'));
     }

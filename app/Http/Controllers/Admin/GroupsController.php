@@ -30,11 +30,11 @@ class GroupsController extends Controller
     {
         $usuarios = DB::table('users')
                         ->select('name', 'id')
-                        ->pluck('name', 'id');
+                        ->pluck('name', 'name');
 
         $courses = DB::table('courses')
                         ->select('name', 'id')
-                        ->pluck('name', 'id');
+                        ->pluck('name', 'name');
 
         return view('admin.groups.create', compact('usuarios', 'courses'));
     }
@@ -50,7 +50,6 @@ class GroupsController extends Controller
         $request->validate([
             'name' => 'required',
             'teacher' => 'required',
-            'students' => 'required',
             'course' => 'required'
         ]);
 
@@ -86,11 +85,11 @@ class GroupsController extends Controller
     {
         $usuarios = DB::table('users')
                         ->select('name', 'id')
-                        ->pluck('name', 'id');
+                        ->pluck('name', 'name');
         
         $courses = DB::table('courses')
                         ->select('name', 'id')
-                        ->pluck('name', 'id');
+                        ->pluck('name', 'name');
 
         return view('admin.groups.edit', compact('group', 'usuarios', 'courses'));
     }
@@ -107,7 +106,6 @@ class GroupsController extends Controller
         $request->validate([
             'name' => 'required',
             'teacher' => 'required',
-            'students' => 'required',
             'course' => 'required'
         ]);
 
@@ -133,5 +131,31 @@ class GroupsController extends Controller
         $group->delete();
 
         return redirect()->route('admin.groups.index')->with('info', 'The group was successfully deleted');;
+    }
+
+    public function asignar_students(){
+
+        $usuarios = DB::table('users')
+                        ->select('name', 'id')
+                        ->get();
+
+        $groups = DB::table('groups')
+                        ->select('name', 'id')
+                        ->pluck('name', 'name');
+
+        return view('admin.groups.asignar', compact('usuarios', 'groups'));
+    }
+
+    public function asignar(Request $request){
+
+        dd($request);
+        
+        try {
+            
+            $asignados = request('list_students', null);
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }

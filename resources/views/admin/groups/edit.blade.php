@@ -16,7 +16,7 @@
 
     <div class="card">
         <div class="card-body">
-            {!! Form::model($group, ['route' => ['admin.groups.store', $group], 'method' => 'put']) !!}
+            {!! Form::model($group, ['route' => ['admin.groups.update', $group], 'method' => 'put']) !!}
 
                 <div class="form-group">
                     {!! Form::label('name', 'Name') !!}
@@ -47,7 +47,7 @@
                     <span class="text-danger">{{ $message }}*</span>
                 @enderror
 
-                {!! Form::submit('Create Group', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Edit Group', ['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}
         </div>
