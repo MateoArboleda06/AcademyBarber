@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Group;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -47,17 +48,17 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
+        /* dd($request); */
         $request->validate([
             'name' => 'required',
-            'teacher' => 'required',
-            'course' => 'required'
+            'course' => 'required',
+            'schedule' => 'required'
         ]);
 
         $group = Group::create([
             'name' => request('name', null),
-            'teacher' => request('teacher', null),
-            'students' => request('students', null),
-            'course' => request('course', null)
+            'course' => request('course', null),
+            'schedule' => request('schedule', null)
         ]);
 
         return redirect()->route('admin.groups.edit', $group)->with('info', 'The group was successfully created');;
@@ -148,14 +149,31 @@ class GroupsController extends Controller
 
     public function asignar(Request $request){
 
-        dd($request);
+        /* dd($request); */
         
         try {
             
+            $group = request('group', null);
             $asignados = request('list_students', null);
 
-        } catch (\Throwable $th) {
-            //throw $th;
+            $groups = Group::where('name', request('group', null))->first();
+
+            //dd($groups);
+
+            foreach($asignados as $asignado){
+
+                Group::create([
+                    'name' => $group,
+                    'schedule' => $groups->schedule,
+                    'group' => $group,
+                    'students' => $asignado
+                ]);
+            }
+
+            return redirect()->route('admin.groups.create')->with('info', 'The assignement was successfully');
+
+        } catch (Exception $th) {
+            return $th;
         }
     }
 }

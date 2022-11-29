@@ -34,11 +34,6 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('students', 'Students') !!}
-                    {{ Form::select('students', $usuarios, null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'students', 'placeholder' => 'Select.....']) }}
-                </div>
-
-                <div class="form-group">
                     {!! Form::label('course', 'Course') !!}
                     {{ Form::select('course', $courses, null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'course', 'required', 'placeholder' => 'Select.....']) }}
                 </div>

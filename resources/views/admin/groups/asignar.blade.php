@@ -68,12 +68,12 @@
     
     <script>
 
-        $(document).ready(function(){
+        /* $(document).ready(function(){
 
             $("tabla_students").DataTable({
                 "order":[]
             });
-        })
+        }) */
 
         var asignado = [];
 

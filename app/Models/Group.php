@@ -13,6 +13,7 @@ class Group extends Model
         'name',
         'teacher',
         'students',
-        'course'
+        'course',
+        'schedule'
     ];
 }
