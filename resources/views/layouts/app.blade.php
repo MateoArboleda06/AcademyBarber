@@ -8,7 +8,13 @@
 
     <title>Home</title>
 
+    <link href="{{ asset('/style.css') }}" rel="stylesheet">
+    {{-- <script src="{{ asset('/darkmode.js') }}"></script> --}}
+
     <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Scripts -->
@@ -33,7 +39,7 @@
 
 </head>
 
-<body class="font-sans antialiased">
+<body {{-- class="font-sans antialiased" --}}>
     <x-jet-banner />
 
     <div {{-- class="min-h-screen bg-gray-100" --}}>
@@ -55,6 +61,14 @@
     @stack('modals')
 
     @livewireScripts
+
+
+    <script type="text/javascript">
+        function changemode() {
+            var bodyweb = document.body;
+            bodyweb.classList.toggle("dark");
+        }
+    </script>
 </body>
 
 </html>
