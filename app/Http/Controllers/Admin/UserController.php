@@ -46,4 +46,5 @@ class UserController extends Controller
 
         return redirect()->route('admin.users.edit', $user)->with('info', 'Se asigno el rol correctamente');
     }
+
 }

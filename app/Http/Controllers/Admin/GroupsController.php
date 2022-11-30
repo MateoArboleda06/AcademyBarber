@@ -7,6 +7,7 @@ use App\Models\Group;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class GroupsController extends Controller
 {
@@ -136,8 +137,9 @@ class GroupsController extends Controller
 
     public function asignar_students(){
 
-        $usuarios = DB::table('users')
-                        ->select('name', 'id')
+        $usuarios = User::select('users.name', 'users.id')
+                        ->join('model_has_roles', 'users.id', '=', 'model_id')
+                        ->where('role_id', '=', 2)
                         ->get();
 
         $groups = DB::table('groups')

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class CoursesController extends Controller
 {
@@ -28,9 +29,10 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        $usuarios = DB::table('users')
-                        ->select('name', 'id')
-                        ->pluck('name', 'name');
+        $usuarios = User::select('users.name')
+                        ->join('model_has_roles', 'users.id', '=', 'model_id')
+                        ->where('role_id', '=', 3)
+                        ->pluck('users.name', 'users.name');
 
         return view('admin.courses.create', compact('usuarios'));
         
