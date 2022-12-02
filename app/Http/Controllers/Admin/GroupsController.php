@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\Group;
 use Exception;
 use Illuminate\Http\Request;
@@ -30,13 +31,14 @@ class GroupsController extends Controller
      */
     public function create()
     {
-        $usuarios = DB::table('users')
-                        ->select('name', 'id')
-                        ->pluck('name', 'name');
+        $usuarios = User::select('users.name', 'users.id')
+                        ->join('model_has_roles', 'users.id', '=', 'model_id')
+                        ->where('role_id', '=', 3)
+                        ->pluck('users.name', 'users.id');
 
         $courses = DB::table('courses')
                         ->select('name', 'id')
-                        ->pluck('name', 'name');
+                        ->pluck('name', 'id');
 
         return view('admin.groups.create', compact('usuarios', 'courses'));
     }
@@ -49,21 +51,68 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
-        /* dd($request); */
+        //dd($request);
         $request->validate([
             'name' => 'required',
+            'schedule' => 'required',
+            'teacher' => 'required',
             'course' => 'required',
-            'schedule' => 'required'
+            
         ]);
 
+        if ($request->schedule == 0) {
+
+            $course = Course::find(request('course', null));
+
+            $teacher = User::find(request('teacher', null));
+
+            //dd($teacher);
+            
+            $group = Group::create([
+                'name' => request('name', null),
+                'schedule' => 'Mañana',
+                'teacher' => $teacher->name,
+                'course' => $course->name,
+                'course_id' => request('course', null),
+                'teacher_id' => request('teacher', null)
+            ]);
+
+            return redirect()->route('admin.groups.edit', $group)->with('info', 'The group was successfully created');
+        } elseif ($request->schedule == 1) {
+
+            $course = Course::find(request('course', null));
+
+            $teacher = User::find(request('teacher', null));
+
+            //dd($teacher);
+            
+            $group = Group::create([
+                'name' => request('name', null),
+                'schedule' => 'Tarde',
+                'teacher' => $teacher->name,
+                'course' => $course->name,
+                'course_id' => request('course', null),
+                'teacher_id' => request('teacher', null)
+            ]);
+            return redirect()->route('admin.groups.edit', $group)->with('info', 'The group was successfully created');
+        }
+
+        $course = Course::find(request('course', null));
+
+        $teacher = User::find(request('teacher', null));
+
+            //dd($teacher);
+            
         $group = Group::create([
             'name' => request('name', null),
-            'course' => request('course', null),
-            'schedule' => request('schedule', null)
+            'schedule' => 'Noche',
+            'teacher' => $teacher->name,
+            'course' => $course->name,
+            'course_id' => request('course', null),
+            'teacher_id' => request('teacher', null)
         ]);
-
-        return redirect()->route('admin.groups.edit', $group)->with('info', 'The group was successfully created');;
-    
+            
+        return redirect()->route('admin.groups.edit', $group)->with('info', 'The group was successfully created');
     }
 
     /**
@@ -85,13 +134,16 @@ class GroupsController extends Controller
      */
     public function edit(Group $group)
     {
-        $usuarios = DB::table('users')
-                        ->select('name', 'id')
-                        ->pluck('name', 'name');
-        
+
+        //dd($group);
+        $usuarios = User::select('users.name', 'users.id')
+                        ->join('model_has_roles', 'users.id', '=', 'model_id')
+                        ->where('role_id', '=', 3)
+                        ->pluck('users.name', 'users.id');
+
         $courses = DB::table('courses')
                         ->select('name', 'id')
-                        ->pluck('name', 'name');
+                        ->pluck('name', 'id');
 
         return view('admin.groups.edit', compact('group', 'usuarios', 'courses'));
     }
@@ -107,8 +159,10 @@ class GroupsController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'schedule' => 'required',
             'teacher' => 'required',
-            'course' => 'required'
+            'course' => 'required',
+            
         ]);
 
         $group = Group::find($request->group->id);
@@ -144,38 +198,52 @@ class GroupsController extends Controller
 
         $groups = DB::table('groups')
                         ->select('name', 'id')
-                        ->pluck('name', 'name');
+                        ->pluck('name', 'id');
 
         return view('admin.groups.asignar', compact('usuarios', 'groups'));
     }
 
     public function asignar(Request $request){
 
-        /* dd($request); */
+        //dd($request);
         
         try {
             
             $group = request('group', null);
             $asignados = request('list_students', null);
 
-            $groups = Group::where('name', request('group', null))->first();
+            $group = Group::where('id', request('group', null))->first();
 
-            //dd($groups);
+            //dd($group);
 
             foreach($asignados as $asignado){
 
-                Group::create([
-                    'name' => $group,
-                    'schedule' => $groups->schedule,
-                    'group' => $group,
-                    'students' => $asignado
-                ]);
+                $group->users()->attach($asignado);
+
             }
 
             return redirect()->route('admin.groups.create')->with('info', 'The assignement was successfully');
 
         } catch (Exception $th) {
-            return $th;
+            dd($th);
         }
     }
+
+    public function listStudents(Request $request){
+
+        /* $usuarios = User::select('users.name', 'users.id')
+                        ->join('model_has_roles', 'users.id', '=', 'model_id')
+                        ->where('role_id', '=', 3)
+                        ->pluck('users.name', 'users.id'); */
+
+        $group = Group::find($request->id);
+
+        $name_group = $group->name;
+        $name_teacher = $group->teacher;
+
+        $students = $group->users;
+
+        return view('admin.groups.list_student', compact('students', 'name_group', 'name_teacher'));
+    }
+
 }

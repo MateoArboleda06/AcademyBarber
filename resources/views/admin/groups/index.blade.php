@@ -29,6 +29,7 @@
                         <th>Name</th>
                         <th>Teacher</th>
                         <th>Course</th>
+                        <th>Schedule</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -40,7 +41,9 @@
                             <td>{{ $group->name }}</td>
                             <td>{{ $group->teacher }}</td>
                             <td>{{ $group->course }}</td>
+                            <td>{{ $group->schedule }}</td>
                             <td width="10px">
+                                <a class="btn btn-primary btn-sm" href="{{ route('list_students', $group->id) }}">See</a>
                                 <a class="btn btn-primary btn-sm" href="{{ route('admin.groups.edit', $group) }}">Edit</a>
                             </td>
                             <td width="10px">

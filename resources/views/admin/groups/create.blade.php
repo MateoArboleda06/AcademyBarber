@@ -28,6 +28,24 @@
                 @enderror
 
                 <div class="form-group">
+                    {!! Form::label('schedule', 'Schedule') !!}
+                    {{ Form::select('schedule', ['Mañana', 'Tarde', 'Noche'], null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'schedule', 'required', 'placeholder' => 'Select.....']) }}
+                </div>
+
+                @error('schedule')
+                    <span class="text-danger">{{ $message }}*</span>
+                @enderror
+
+                <div class="form-group">
+                    {!! Form::label('teacher', 'Teacher') !!}
+                    {{ Form::select('teacher', $usuarios, null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'teacher', 'required', 'placeholder' => 'Select.....']) }}
+                </div>
+
+                @error('teacher')
+                    <span class="text-danger">{{ $message }}*</span>
+                @enderror
+
+                <div class="form-group">
                     {!! Form::label('course', 'Course') !!}
                     {{ Form::select('course', $courses, null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'course', 'required', 'placeholder' => 'Select.....']) }}
                 </div>
@@ -36,14 +54,7 @@
                     <span class="text-danger">{{ $message }}*</span>
                 @enderror
 
-                <div class="form-group">
-                    {!! Form::label('schedule', 'Schedule') !!}
-                    {{ Form::select('schedule', ['Mañana', 'Tarde', 'Noche'], null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'schedule', 'required', 'placeholder' => 'Select.....']) }}
-                </div>
-
-                @error('schedule')
-                    <span class="text-danger">{{ $message }}*</span>
-                @enderror
+                
 
                 {!! Form::submit('Create Group', ['class' => 'btn btn-primary']) !!}
 

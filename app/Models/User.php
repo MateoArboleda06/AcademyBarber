@@ -61,4 +61,15 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    //Relacion muchos a muchos con groups
+    public function groups(){
+        return $this->belongsToMany('App\Models\Group');
+    }
+
+    //Relacion muchos a muchos con courses
+    public function courses(){
+        return $this->belongsToMany('App\Models\Course');
+    }
+
 }
