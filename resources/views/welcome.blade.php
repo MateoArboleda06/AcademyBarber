@@ -2,16 +2,22 @@
     <div class="flex items-center justify-center"><img src="academ.png" alt="" style="width:30%"
             class="card-img-top"></div>
 
-    <div class="about-section">
+    {{--     <div class="about-section">
         <h4 class="text-2xl">About Us Page</h4>
         <br>
         <p>The Barber Academy is an educational platform which simplifies the administrative processes
             for students on the one hand, and offers students an accessible and flexible e-learning environment on the
             other.</p>
-    </div>
+    </div> --}}
 
-    <br>
-    <h4 class="welcome text-2xl">Our Team</h4>
+    
+    {{-- <h4 class="welcome text-2xl">Our Team</h4> --}}
+
+    <div class="team">
+        <div class="sticky-lg">
+            <h1 class="welcome text-2xl">Team</h1>
+        </div>
+    </div>
 
     <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
 
@@ -25,7 +31,8 @@
                 <div class="face back">
                     <h3>Mateo Arboleda</h3>
                     <p class="title">Scrum Master</p>
-                    <p>Scrum team trainer and facilitator. It helps the team stay focused on the project objectives and eliminate impediments that appear along the way.</p>
+                    <p>Scrum team trainer and facilitator. It helps the team stay focused on the project objectives and
+                        eliminate impediments that appear along the way.</p>
                     <p>mateo_arboleda82181@elpoli.edu.co</p>
                 </div>
             </div>

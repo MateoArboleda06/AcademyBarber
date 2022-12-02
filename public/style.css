@@ -18,7 +18,7 @@
 
     /*dark mode*/
     .dark {
-        background: #1f1f1f;
+        background: #272727;
         color: #f1eded;
         transition: all 1.5s ease;
     }
@@ -36,10 +36,16 @@
         box-sizing: border-box;
     }
 
-    .card {
+    .team {
+        border-radius: 5px;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-        margin: 100px;
-    }
+        margin: 50px;
+        background-color: rgba(84, 49, 27);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+}
 
     .about-section {
         padding: 50px;
@@ -185,4 +191,95 @@
         font-size: 1.8em;
         color: rgb(31 41 55);
         cursor: pointer;
+    }
+
+    /*FOOTER*/
+
+    /*:::::Pie de Pagina*/
+    .pie-pagina {
+        width: 100%;
+        background-color: linear-gradient(0deg, rgba(84, 49, 27) 0%, rgb(255, 255, 255) 150%);
+    }
+
+    .pie-pagina .grupo-1 {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 50px;
+        padding: 45px 0px;
+    }
+
+    .pie-pagina .grupo-1 .box figure {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pie-pagina .grupo-1 .box figure img {
+        width: 250px;
+    }
+
+    .pie-pagina .grupo-1 .box h2 {
+        color: #fff;
+        margin-bottom: 25px;
+        font-size: 20px;
+    }
+
+    .pie-pagina .grupo-1 .box p {
+        color: #efefef;
+        margin-bottom: 10px;
+    }
+
+    .pie-pagina .grupo-2 {
+        background-color: #1f1f1f;
+        padding: 15px 10px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .pie-pagina .grupo-2 small {
+        font-size: 15px;
+    }
+
+    @media screen and (max-width:800px) {
+        .pie-pagina .grupo-1 {
+            width: 90%;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 30px;
+            padding: 35px 0px;
+        }
+    }
+
+    /*whatsapp*/
+
+    .buttons {
+        display: inline-block;
+        justify-content: space-around;
+    }
+
+    .buttons a {
+        text-decoration: none;
+        font-size: 28px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        margin-right: 10px;
+        text-align: center;
+        background: rgba(84, 49, 27);
+        color: #f1f1f1;
+        border-radius: 50%;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+        transition: all .4s ease-in-out;
+    }
+
+    .buttons a:hover {
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
     }
