@@ -64,3 +64,30 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## ---------------------------------------------------------------------------------------------------------------------
+
+## Configuracion de Despliegue
+
+Requisitos antes de iniciar con el despliegue:
+
+Tener instalado XAMPP
+
+Antes de instalar Laravel, debemos de configurar la variable de entorno PATH, así que simplemente se puede llamar composer desde cualquier directorio, y para esto se debe descargar el ejecutable de composer e instalarlo que se encuentra en el siguiente link https://getcomposer.org/download/
+
+Para instalar Laravel, abrimos la consola bash y nos ubicamos en la siguiente ruta **cd /c/xampp/htdocs**
+
+Despues ingresamos el siguiente comando **composer global require Laravel/installer** esto lo que hará es instalar Laravel.
+
+Luego podriamos verificar la version de PHP con el comando **php -v**.
+
+Para el correcto funcionamiento del LMS debemos de instalar las siguientes librerias:
+
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
