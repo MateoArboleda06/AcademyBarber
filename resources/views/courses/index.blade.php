@@ -22,9 +22,9 @@
                                     </a>
 
 
-                                    <p class="title"><strong>Semester:</strong>{{ $course->semester }}</p>
+                                    {{-- <p class="title"><strong>Semester:</strong>{{ $course->semester }}</p>
                                     <p class="card-text"><strong>Teacher: </strong>{{ $course->teacher }}</p>
-                                    <p class="card-text">{{ $course->description }}</p>
+                                    <p class="card-text">{{ $course->description }}</p> --}}
                                 </center>
 
                             </div>
@@ -34,6 +34,9 @@
             </div>
         @endforeach
     </div>
+
+    <x-slot:footer>
+    </x-slot:footer>
 
 </x-app-layout>
 
@@ -98,6 +101,9 @@
         -webkit-user-select: none;
         touch-action: manipulation;
         white-space: nowrap;
+
+        width: auto;
+        height: auto;
     }
 
     .button:not([disabled]):focus {

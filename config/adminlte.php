@@ -351,10 +351,14 @@ return [
             'icon_color' => 'cyan',
             'url'        => '#',
         ],
-        [
+/*         [
             'text'       => 'Dark mode',
             'icon'       => 'fas fa-moon',
             'url'        => '#',
+        ], */
+        [
+            'type'       => 'sidebar-menu-button',
+            'text'       => 'Darkmode',
         ],
     ],
 

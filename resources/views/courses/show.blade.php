@@ -7,20 +7,76 @@
         <a href="{{ route('course.index') }}"><button class="button">Back to Courses</button></a>
         <br>
         <br>
-        <p class="showinfo"><strong>Semester: </strong>{{ $course->semester }}</p>
+{{--         <p class="showinfo"><strong>Semester: </strong>{{ $course->semester }}</p>
         <p class="showinfo">{{ $course->description }}</p>
         <p class="showinfo"><strong>Teacher: </strong>{{ $course->teacher }}</p>
-        <br>
+        <br> --}}
 
-        <a href="#"><button class="button">Seguimiento</button></a>
+        {{--         <a href="#"><button class="button">Seguimiento</button></a>
         <br>
         <br>
         <a href="#"><button class="button">Parcial 1</button></a>
         <br>
         <br>
-        <a href="#"><button class="button">Parcial 2</button></a>
+        <a href="#"><button class="button">Parcial 2</button></a> --}}
+
+        <div class="card text-center">
+            <div class="info card-header text-2xl">
+                Information
+            </div>
+            <div class="descrip card-body">
+                <h5 class="card-title" style="font-weight: bold">Teacher: 
+                    <p class="card-text" style="font-weight: normal">profesor</p>
+                </h5>
+                <br>
+                <h5 class="card-title" style="font-weight: bold">Schedule: 
+                    <p class="card-text" style="font-weight: normal">horario</p>
+                </h5>
+                <br>
+                <h5 class="card-title" style="font-weight: bold">Group: 
+                    <p class="card-text" style="font-weight: normal">grupo</p>
+                </h5>
+                <br>
+                <h5 class="card-title" style="font-weight: bold">Semester: 
+                    <p class="card-text" style="font-weight: normal">{{ $course->semester }}</p>
+                </h5>
+
+            </div>
+        </div>
+
+        <br>
+
+        <div class="card text-center">
+            <div class="info card-header text-2xl">
+                Description
+            </div>
+            <div class="descrip card-body">
+                <li class="card-text">Assessing the condition of the client's hair and scalp, taking into account the established protocol.</li>
+                <li class="card-text">Selection of hair and scalp treatment techniques according to established assessment and protocol.</li>
+                <li class="card-text">Prepare and perform the hair procedure taking into account the technical protocol, biosecurity and safety standards.</li>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="card text-center">
+            <div class="info card-header text-2xl">
+                Notes
+            </div>
+            <div class="descrip card-body">
+                <h5 class="card-title" style="font-weight: bold">Partial 1: <normal style="font-weight: normal">4.0</normal></h5>
+                <br>
+                <h5 class="card-title" style="font-weight: bold">Follow-up: <normal style="font-weight: normal">4.5</normal></h5>
+                <br>
+                <h5 class="card-title" style="font-weight: bold">Partial 2: <normal style="font-weight: normal">3.5</normal></h5>
+            </div>
+        </div>
 
     </div>
+
+    <x-slot:footer>
+    </x-slot:footer>
+
 </x-app-layout>
 
 <style>
@@ -56,6 +112,9 @@
         -webkit-user-select: none;
         touch-action: manipulation;
         white-space: nowrap;
+
+        width: auto;
+        height: auto;
     }
 
     .button:not([disabled]):focus {
@@ -64,5 +123,28 @@
 
     .button:not([disabled]):hover {
         box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+    }
+
+    .team {
+        border-radius: 5px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+        margin: 50px;
+        background-color: rgba(84, 49, 27);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+
+    .info {
+        background-color: rgba(84, 49, 27);
+    }
+
+    .descrip {
+        background-color: rgba(164, 120, 93);
+    }
+
+    .text-2xl {
+        color: white;
     }
 </style>
