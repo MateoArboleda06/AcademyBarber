@@ -59,6 +59,18 @@
                                 Courses</a>
                         @endcan
 
+                        @can('student.index')
+                            <a href="{{ route('student.schedule') }}"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Schedule</a>
+                        @endcan
+
+                        @can('course.index')
+                            <a href="{{ route('course.index') }}"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Information Courses
+
+                            </a>
+                        @endcan
+
                     </div>
                 </div>
             </div>
