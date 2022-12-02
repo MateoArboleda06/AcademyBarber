@@ -26,8 +26,9 @@ class CourseController extends Controller
     public function show($id) {
 
         $course = Course::find($id);
+        $course1 = $course->groups;
 
-        return view('courses.show', compact('course'));
+        return view('courses.show', compact('course','course1'));
     }
 
     public function edit($id){
@@ -114,6 +115,7 @@ class CourseController extends Controller
         $courses2 = Course::where('name', 'Biosafety')->first();
         $courses3 = Course::where('name', 'Entrepreneurship')->first();
 
+        /* dd($courses1); */
         $array_courses = [$courses1->groups, $courses2->groups, $courses3->groups];
 
         $user = auth()->user()->name;

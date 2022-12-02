@@ -2,73 +2,56 @@
     <h1 class="welcome">Schedule's Student {{ $user }}</h1>
     <br>
 
-        
-    <div class="card">
-        <div class="card-header">
-            <strong><h2>Mañana</h2></strong>
-        </div>
-        
-        <div class="card-body">
-            <li><strong>Course: </strong>{{ $courses1->name }} <br>
-                <strong>Semester: </strong>{{ $courses1->semester }} <br>
-                <strong>Teacher: </strong>{{ $course1[0]->teacher }} <br> 
-                <strong>Group: </strong>{{ $course1[0]->name }}
-            </li>
-        </div>
-    </div>
-    <br>
 
-    <div class="card">
-        <div class="card-header">
-            <strong><h2>Tarde</h2></strong>
+    <div class="card text-center">
+        <div class="info card-header">
+            <strong>
+                <h2 class="text-white">Mañana</h2>
+            </strong>
         </div>
 
-        <div class="card-body">
-            <li><strong>Course: </strong>{{ $courses2->name }} <br>
-                <strong>Semester: </strong>{{ $courses2->semester }} <br>
-                <strong>Teacher: </strong>{{ $course2[0]->teacher }} <br> 
-                <strong>Group: </strong>{{ $course2[0]->name }}
-            </li>
+        <div class="descrip card-body">
+            <strong>Course: </strong>{{ $courses1->name }} <br>
+            <strong>Semester: </strong>{{ $courses1->semester }} <br>
+            <strong>Teacher: </strong>{{ $course1[0]->teacher }} <br>
+            <strong>Group: </strong>{{ $course1[0]->name }}
         </div>
     </div>
     <br>
 
-    <div class="card">
-        <div class="card-header">
-            <strong><h2>Noche</h2></strong>
+    <div class="card text-center">
+        <div class="info card-header">
+            <strong>
+                <h2 class="text-white">Tarde</h2>
+            </strong>
         </div>
 
-        <div class="card-body">
-            <li><strong>Course: </strong>{{ $courses3->name }} <br>
-                <strong>Semester: </strong>{{ $courses3->semester }} <br>
-                <strong>Teacher: </strong>{{ $course3[0]->teacher }} <br> 
-                <strong>Group: </strong>{{ $course3[0]->name }}
-            </li>
+        <div class="descrip card-body">
+            <strong>Course: </strong>{{ $courses2->name }} <br>
+            <strong>Semester: </strong>{{ $courses2->semester }} <br>
+            <strong>Teacher: </strong>{{ $course2[0]->teacher }} <br>
+            <strong>Group: </strong>{{ $course2[0]->name }}
         </div>
     </div>
-        
-   <x-slot:footer>
-   </x-slot:footer>
+    <br>
 
-    {{-- <div style="text-align: center">
-        <br>
-        <a href="{{ route('course.index') }}"><button class="button">Back to Courses</button></a>
-        <br>
-        <br>
-        <p class="showinfo"><strong>Semester: </strong>{{ $course->semester }}</p>
-        <p class="showinfo">{{ $course->description }}</p>
-        <p class="showinfo"><strong>Teacher: </strong>{{ $course->teacher }}</p>
-        <br>
+    <div class="card text-center">
+        <div class="info card-header">
+            <strong>
+                <h2 class="text-white">Noche</h2>
+            </strong>
+        </div>
 
-        <a href="#"><button class="button">Seguimiento</button></a>
-        <br>
-        <br>
-        <a href="#"><button class="button">Parcial 1</button></a>
-        <br>
-        <br>
-        <a href="#"><button class="button">Parcial 2</button></a>
+        <div class="descrip card-body">
+            <strong>Course: </strong>{{ $courses3->name }} <br>
+            <strong>Semester: </strong>{{ $courses3->semester }} <br>
+            <strong>Teacher: </strong>{{ $course3[0]->teacher }} <br>
+            <strong>Group: </strong>{{ $course3[0]->name }}
+        </div>
+    </div>
 
-    </div> --}}
+    <x-slot:footer>
+    </x-slot:footer>
 </x-app-layout>
 
 <style>
@@ -112,5 +95,28 @@
 
     .button:not([disabled]):hover {
         box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+    }
+
+    .team {
+        border-radius: 5px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+        margin: 50px;
+        background-color: rgba(84, 49, 27);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+
+    .info {
+        background-color: rgba(84, 49, 27);
+    }
+
+    .descrip {
+        background-color: rgba(164, 120, 93);
+    }
+
+    .text-2xl {
+        color: white;
     }
 </style>

@@ -25,21 +25,22 @@
                 Information
             </div>
             <div class="descrip card-body">
-                <h5 class="card-title" style="font-weight: bold">Teacher: 
-                    <p class="card-text" style="font-weight: normal">profesor</p>
-                </h5>
+                <strong class="card-title" {{-- style="font-weight: bold" --}}>Teacher: </strong>{{ $course->teacher }}
+                    {{-- <p class="card-text" style="font-weight: normal">{{ $course->teacher }}</p> --}}
                 <br>
-                <h5 class="card-title" style="font-weight: bold">Schedule: 
-                    <p class="card-text" style="font-weight: normal">horario</p>
-                </h5>
                 <br>
-                <h5 class="card-title" style="font-weight: bold">Group: 
-                    <p class="card-text" style="font-weight: normal">grupo</p>
-                </h5>
+                <strong class="card-title" style="font-weight: bold">Schedule: </strong> {{ $course1[0]->schedule }}
+                    {{-- <p class="card-text" style="font-weight: normal">{{ $course1[0]->schedule }}</p> --}}
                 <br>
-                <h5 class="card-title" style="font-weight: bold">Semester: 
-                    <p class="card-text" style="font-weight: normal">{{ $course->semester }}</p>
-                </h5>
+                <br>
+                <strong class="card-title" style="font-weight: bold">Group: </strong> {{ $course->group }}
+                    {{-- <p class="card-text" style="font-weight: normal">{{ $course->group }}</p> --}}
+                
+                <br>
+                <br>
+                <strong class="card-title" style="font-weight: bold">Semester: </strong> {{ $course->semester }}
+                    {{-- <p class="card-text" style="font-weight: normal">{{ $course->semester }}</p> --}}
+                
 
             </div>
         </div>
@@ -51,7 +52,7 @@
                 Description
             </div>
             <div class="descrip card-body">
-                <li class="card-text">Assessing the condition of the client's hair and scalp, taking into account the established protocol.</li>
+                <li class="card-text">{{ $course->description }}</li>
                 <li class="card-text">Selection of hair and scalp treatment techniques according to established assessment and protocol.</li>
                 <li class="card-text">Prepare and perform the hair procedure taking into account the technical protocol, biosecurity and safety standards.</li>
             </div>
