@@ -132,6 +132,9 @@
         </div>
     </div>
 
+    <x-slot:footer>
+    </x-slot:footer>
+
 </x-app-layout>
 
 <style>
