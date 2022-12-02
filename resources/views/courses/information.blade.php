@@ -1,50 +1,33 @@
 <x-app-layout>
-    <h1 class="welcome">Schedule's Student {{ $user }}</h1>
+    <h1 class="welcome">Courses Information {{ auth()->user()->name }}</h1>
     <br>
 
         
     <div class="card">
         <div class="card-header">
-            <strong><h2>Mañana</h2></strong>
+            <strong><h2>Viewed Courses</h2></strong>
         </div>
         
         <div class="card-body">
-            <li><strong>Course: </strong>{{ $courses1->name }} <br>
-                <strong>Semester: </strong>{{ $courses1->semester }} <br>
-                <strong>Teacher: </strong>{{ $course1[0]->teacher }} <br> 
-                <strong>Group: </strong>{{ $course1[0]->name }}
-            </li>
+            <strong>Amount: </strong>{{ $cant_vistas }} Courses<br>
+            <strong>Names: </strong> {{ $name_viwed1[0]->name }}, {{ $name_viwed2[0]->name }}<br>
+
         </div>
     </div>
     <br>
 
     <div class="card">
         <div class="card-header">
-            <strong><h2>Tarde</h2></strong>
+            <strong><h2>Missing Courses</h2></strong>
         </div>
 
         <div class="card-body">
-            <li><strong>Course: </strong>{{ $courses2->name }} <br>
-                <strong>Semester: </strong>{{ $courses2->semester }} <br>
-                <strong>Teacher: </strong>{{ $course2[0]->teacher }} <br> 
-                <strong>Group: </strong>{{ $course2[0]->name }}
-            </li>
+            <strong>Amount: </strong>{{ $cant_faltantes }} Courses<br>
+            @foreach ($names_missed as $missed)
+                <strong>Name: </strong>{{ $missed->name }}<br>
+            @endforeach
         </div>
-    </div>
-    <br>
-
-    <div class="card">
-        <div class="card-header">
-            <strong><h2>Noche</h2></strong>
-        </div>
-
-        <div class="card-body">
-            <li><strong>Course: </strong>{{ $courses3->name }} <br>
-                <strong>Semester: </strong>{{ $courses3->semester }} <br>
-                <strong>Teacher: </strong>{{ $course3[0]->teacher }} <br> 
-                <strong>Group: </strong>{{ $course3[0]->name }}
-            </li>
-        </div>
+            
     </div>
         
    <x-slot:footer>

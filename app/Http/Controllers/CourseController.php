@@ -130,4 +130,16 @@ class CourseController extends Controller
 
         return view('courses.schedule', compact('course1', 'course2', 'course3', 'courses1', 'courses2', 'courses3', 'user'));
     }
+
+    public function informationCourse(){
+
+        $cant_courses = Course::count();
+        $cant_vistas = 2;
+        $cant_faltantes = Course::where([['name', '!=', 'Sale and Consulting'], ['name', '!=', 'Hair Color Change Techniques']])->count();
+        $name_viwed1 = Course::where('name', 'Sale and Consulting')->get();
+        $name_viwed2 = Course::where('name', 'Hair Color Change Techniques')->get();
+        $names_missed = Course::where([['name', '!=', 'Sale and Consulting'], ['name', '!=', 'Hair Color Change Techniques']])->get();
+
+        return view('courses.information', compact('cant_courses', 'cant_vistas', 'cant_faltantes', 'name_viwed1', 'name_viwed2', 'names_missed'));
+    }
 }
