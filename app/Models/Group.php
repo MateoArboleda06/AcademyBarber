@@ -12,8 +12,19 @@ class Group extends Model
     protected $fillable = [
         'name',
         'teacher',
-        'students',
         'course',
-        'schedule'
+        'schedule',
+        'course_id',
+        'teacher_id'
     ];
+
+    //Relacion muchos a muchos con users
+    public function users(){
+        return $this->belongsToMany('App\Models\User');
+    }
+
+    //Relacion uno a muchos (inversa) con courses
+    public function courses(){
+        return $this->belongsTo('App\Models\Course');
+    }
 }

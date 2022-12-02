@@ -19,3 +19,5 @@ Route::resource('groups', GroupsController::class)->names('admin.groups');
 Route::get('student_asigned', [GroupsController::class, 'asignar_students'])->name('form_asigned');
 
 Route::post('student_asigned1', [GroupsController::class, 'asignar'])->name('save_asigned');
+
+Route::get('list_students/{id}/see', [GroupsController::class, 'listStudents'])->name('list_students');

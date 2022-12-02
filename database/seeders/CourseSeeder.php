@@ -20,7 +20,6 @@ class CourseSeeder extends Seeder
 
         $course->name = "Diagnostico y técnicas capilares";
         $course->semester = "1";
-        $course->teacher = "David";
         $course->description = "Valorar el estado del cabello y el cuero cabelludo del cliente teniendo en cuenta el protocolo establecido.";
 
         $course->save();
@@ -29,7 +28,7 @@ class CourseSeeder extends Seeder
 
         $course2->name = "Bioseguridad";
         $course2->semester = "1";
-        $course2->teacher = "Mateo";
+        $course2->description = "Valorar el estado del cabello y el cuero cabelludo del cliente teniendo en cuenta el protocolo establecido.";
 
         $course2->save();
 
@@ -38,7 +37,7 @@ class CourseSeeder extends Seeder
 
         $course3->name = "Emprendimiento";
         $course3->semester = "4";
-        $course3->teacher = "Pablo";
+        $course3->description = "Valorar el estado del cabello y el cuero cabelludo del cliente teniendo en cuenta el protocolo establecido.";
 
         $course3->save();
 
