@@ -26,6 +26,7 @@ Route::controller(CourseController::class)->group(function() {
     Route::get('course/{id}', 'show')->name('course.show');
     Route::get('course/{id}/edit', 'edit')->name('course.edit');
     Route::get('course/{id}/assignment', 'assignment')->name('course.assignment');
+    Route::get('student/schedule', 'schedule')->name('student.schedule');
 
     Route::post('course', 'store')->name('course.store');
 

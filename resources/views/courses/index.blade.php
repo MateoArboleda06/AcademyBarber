@@ -9,7 +9,7 @@
             </a>
         </div> --}}
 
-        @foreach ($courses as $course)
+        @foreach ($array_courses as $course)
             <div class="row cont column">
                 <div class="cards" style="width: 18rem;">
                     <div class="box">

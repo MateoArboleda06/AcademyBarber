@@ -9,9 +9,14 @@ class CourseController extends Controller
 {
     public function index() { 
 
-        $courses = Course::all();
+        $courses1 = Course::where('name', 'Diagnosis and Hair Techniques')->first();
+        $courses2 = Course::where('name', 'Biosafety')->first();
+        $courses3 = Course::where('name', 'Entrepreneurship')->first();
 
-        return view('courses.index', compact('courses'));
+        $array_courses = [$courses1, $courses2, $courses3];
+        //dd($array_courses);
+
+        return view('courses.index', compact('array_courses'));
     }
 
     public function create() {
@@ -101,5 +106,28 @@ class CourseController extends Controller
         $course->update($request->all());
 
         return redirect()->route('course.show', $course);
+    }
+
+    public function schedule(){
+
+        $courses1 = Course::where('name', 'Diagnosis and Hair Techniques')->first();
+        $courses2 = Course::where('name', 'Biosafety')->first();
+        $courses3 = Course::where('name', 'Entrepreneurship')->first();
+
+        $array_courses = [$courses1->groups, $courses2->groups, $courses3->groups];
+
+        $user = auth()->user()->name;
+
+        $course1 = $courses1->groups;
+        $course2 = $courses2->groups;
+        $course3 = $courses3->groups;
+
+        //$courses1->groups;
+
+        //dd($course1);
+
+        //dd($array_courses);
+
+        return view('courses.schedule', compact('course1', 'course2', 'course3', 'courses1', 'courses2', 'courses3', 'user'));
     }
 }
