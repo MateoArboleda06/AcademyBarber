@@ -1,4 +1,4 @@
-<nav style="background-color: #272727" x-data="{ open: false }">
+<nav style="background-color: #1f1f1f" x-data="{ open: false }">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
 
@@ -76,8 +76,6 @@
                             </div>
 
                         </label>
-
-
                     </div>
                     <span class="mb-2 ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Dark
                         mode</span>

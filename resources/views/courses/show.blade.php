@@ -27,7 +27,8 @@
     .welcome {
         text-align: center;
         color: white;
-        text-shadow: black 0.1em 0.1em 0.2em
+        text-shadow: black 0.1em 0.1em 0.2em;
+        font-size: 26px;
     }
 
     .showinfo {

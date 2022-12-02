@@ -58,6 +58,35 @@
         </div>
     </div>
 
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <img src="academ.png" alt="Barber Academy">
+                </figure>
+            </div>
+            <div class="box">
+                <h2>About Us Page</h2>
+                <p>The Barber Academy is an educational platform which simplifies the administrative processes
+                    for students on the one hand, and offers students an accessible and flexible e-learning environment
+                    on the
+                    other</p>
+            </div>
+            <div class="box">
+                <h2>CONTACT US</h2>
+                {{--                 <div class="red-social">
+                    <a href="https://wa.me/+573016389477" class="fa-brands fa-whatsapp"></a>
+                </div> --}}
+                <section class="buttons">
+                    <a href="https://wa.me/+573016389477" class="fa-brands fa-whatsapp"></a>
+                </section>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2022 <b>Barber Academy</b> - All rights reserved.</small>
+        </div>
+    </footer>
+
     @stack('modals')
 
     @livewireScripts
