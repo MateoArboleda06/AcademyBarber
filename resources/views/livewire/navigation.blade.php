@@ -65,7 +65,7 @@
                         @endcan
 
                         @can('course.index')
-                            <a href="{{ route('course.index') }}"
+                            <a href="{{ route('student.informationCourse') }}"
                                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Information Courses
 
                             </a>
