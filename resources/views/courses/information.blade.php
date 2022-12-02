@@ -3,12 +3,12 @@
     <br>
 
         
-    <div class="card">
-        <div class="card-header">
-            <strong><h2>Viewed Courses</h2></strong>
+    <div class="card text-center">
+        <div class="info card-header">
+            <strong><h2 class="text-white">Viewed Courses</h2></strong>
         </div>
         
-        <div class="card-body">
+        <div class="descrip card-body">
             <strong>Amount: </strong>{{ $cant_vistas }} Courses<br>
             <strong>Names: </strong> {{ $name_viwed1[0]->name }}, {{ $name_viwed2[0]->name }}<br>
 
@@ -16,12 +16,12 @@
     </div>
     <br>
 
-    <div class="card">
-        <div class="card-header">
-            <strong><h2>Missing Courses</h2></strong>
+    <div class="card text-center">
+        <div class="info card-header">
+            <strong><h2 class="text-white">Missing Courses</h2></strong>
         </div>
 
-        <div class="card-body">
+        <div class="descrip card-body">
             <strong>Amount: </strong>{{ $cant_faltantes }} Courses<br>
             @foreach ($names_missed as $missed)
                 <strong>Name: </strong>{{ $missed->name }}<br>
@@ -31,27 +31,10 @@
     </div>
         
    <x-slot:footer>
+    <div class="grupo-2">
+        <small>&copy; 2022 <b>Barber Academy</b> - All rights reserved.</small>
+    </div>
    </x-slot:footer>
-
-    {{-- <div style="text-align: center">
-        <br>
-        <a href="{{ route('course.index') }}"><button class="button">Back to Courses</button></a>
-        <br>
-        <br>
-        <p class="showinfo"><strong>Semester: </strong>{{ $course->semester }}</p>
-        <p class="showinfo">{{ $course->description }}</p>
-        <p class="showinfo"><strong>Teacher: </strong>{{ $course->teacher }}</p>
-        <br>
-
-        <a href="#"><button class="button">Seguimiento</button></a>
-        <br>
-        <br>
-        <a href="#"><button class="button">Parcial 1</button></a>
-        <br>
-        <br>
-        <a href="#"><button class="button">Parcial 2</button></a>
-
-    </div> --}}
 </x-app-layout>
 
 <style>
@@ -95,5 +78,28 @@
 
     .button:not([disabled]):hover {
         box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+    }
+
+    .team {
+        border-radius: 5px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+        margin: 50px;
+        background-color: rgba(84, 49, 27);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+
+    .info {
+        background-color: rgba(84, 49, 27);
+    }
+
+    .descrip {
+        background-color: rgba(164, 120, 93);
+    }
+
+    .text-2xl {
+        color: white;
     }
 </style>
