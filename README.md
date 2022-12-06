@@ -84,10 +84,17 @@ Luego podriamos verificar la version de PHP con el comando **php -v**.
 
 Para el correcto funcionamiento del LMS debemos de instalar las siguientes librerias:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Las primeras 4 librerias son para integrar y configurar la plantilla Jetstream, esta es la que trae Login y Registro,**
+**para un correcto funcionamiento de login y registro debes de instalar estas librerias, para que en el proceso no surjan**
+**errores.** 
+- composer laravel/jetstream
+- php artisan jetstream:install livewire
+- npm install
+- npm run build
+
+**La siguiente libreria es para linkear el Storage dentro de la carpeta del proyecto, para que al momento de que el usuario**
+**desee tener una foto de perfil, el programa sepa donde encontrar el archivo donde se encuentra la imagen.** 
+- php artisan storage:link
+
+
+
