@@ -12,11 +12,15 @@ use App\Models\User;
 
 class GroupsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    public function __construct(){
+        
+        $this->middleware('can:admin.groups.index')->only('index');
+        $this->middleware('can:admin.groups.create')->only('create', 'store');
+        $this->middleware('can:admin.groups.edit')->only('edit', 'update');
+        $this->middleware('can:admin.groups.destroy')->only('destroy');
+    }
+
     public function index()
     {
         $groups = Group::all();

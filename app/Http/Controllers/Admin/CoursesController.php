@@ -10,11 +10,15 @@ use App\Models\User;
 
 class CoursesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    public function __construct(){
+        
+        $this->middleware('can:admin.courses.index')->only('index');
+        $this->middleware('can:admin.courses.create')->only('create', 'store');
+        $this->middleware('can:admin.courses.edit')->only('edit', 'update');
+        $this->middleware('can:admin.courses.destroy')->only('destroy');
+    }
+
     public function index()
     {
         $courses = Course::all();

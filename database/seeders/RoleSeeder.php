@@ -39,6 +39,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.groups.destroy'])->assignRole($role1);
 
         Permission::create(['name' => 'form_asigned'])->assignRole($role1);
+        Permission::create(['name' => 'list_students'])->assignRole($role1);
 
         //Permisos estudiante
 
