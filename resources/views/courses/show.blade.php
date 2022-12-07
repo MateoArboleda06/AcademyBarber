@@ -67,15 +67,18 @@
             <div class="descrip card-body">
                 <h5 class="card-title" style="font-weight: bold">Partial 1: <normal style="font-weight: normal">4.0</normal></h5>
                 <br>
-                <h5 class="card-title" style="font-weight: bold">Follow-up: <normal style="font-weight: normal">4.5</normal></h5>
+                <h5 class="card-title" style="font-weight: bold">Follow-up: <normal style="font-weight: normal"></normal></h5>
                 <br>
-                <h5 class="card-title" style="font-weight: bold">Partial 2: <normal style="font-weight: normal">3.5</normal></h5>
+                <h5 class="card-title" style="font-weight: bold">Partial 2: <normal style="font-weight: normal"></normal></h5>
             </div>
         </div>
 
     </div>
 
     <x-slot:footer>
+        <div class="grupo-2">
+            <small>&copy; 2022 <b>Barber Academy</b> - All rights reserved.</small>
+        </div>
     </x-slot:footer>
 
 </x-app-layout>

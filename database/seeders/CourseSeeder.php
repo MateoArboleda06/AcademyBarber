@@ -66,6 +66,54 @@ class CourseSeeder extends Seeder
 
         $course5->save();
 
+        $course6 = new Course();
 
+        $course6->name = "Haircutting techniques in the barber's shop";
+        $course6->semester = "2";
+        $course6->description = "Analyze the characteristics of the hair and scalp, facial morphology and customer demands.";
+        $course6->teacher = "Jose Chaverra";
+        $course6->group = "6";
+
+        $course6->save();
+
+        $course7 = new Course();
+
+        $course7->name = "Occupational health and safety";
+        $course7->semester = "2";
+        $course7->description = "Evaluate the risks and hazards associated with the work environment according to the work activity.";
+        $course7->teacher = "Jose Chaverra";
+        $course7->group = "7";
+
+        $course7->save();
+
+        $course8 = new Course();
+
+        $course8->name = "Techniques of creation and facial shapes and shaving";
+        $course8->semester = "3";
+        $course8->description = "Analyze the client's physical characteristics, needs and demands to select a beard or mustache style.";
+        $course8->teacher = "Jose Chaverra";
+        $course8->group = "8";
+
+        $course8->save();
+
+        $course9 = new Course();
+
+        $course9->name = "Design of patterns and figures on the contour of the head";
+        $course9->semester = "4";
+        $course9->description = "Analyze the characteristics of the style, type of hair and the client's needs and demands.";
+        $course9->teacher = "Jose Chaverra";
+        $course9->group = "9";
+
+        $course9->save();
+        
+        $course10 = new Course();
+
+        $course10->name = "Hair techniques in the permanent change of shape in hair";
+        $course10->semester = "5";
+        $course10->description = "Analyze the characteristics of the client's hair and scalp, as well as the client's style and needs, to determine the techniques for a permanent change.";
+        $course10->teacher = "Jose Chaverra";
+        $course10->group = "10";
+
+        $course10->save();
     }
 }

@@ -36,6 +36,9 @@
     </div>
 
     <x-slot:footer>
+        <div class="grupo-2">
+            <small>&copy; 2022 <b>Barber Academy</b> - All rights reserved.</small>
+        </div>
     </x-slot:footer>
 
 </x-app-layout>

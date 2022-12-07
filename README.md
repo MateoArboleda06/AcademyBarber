@@ -64,3 +64,44 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## ---------------------------------------------------------------------------------------------------------------------
+
+## Configuracion de Despliegue
+
+Requisitos antes de iniciar con el despliegue:
+
+Tener instalado XAMPP
+
+Antes de instalar Laravel, debemos de configurar la variable de entorno PATH, así que simplemente se puede llamar composer desde cualquier directorio, y para esto se debe descargar el ejecutable de composer e instalarlo que se encuentra en el siguiente link https://getcomposer.org/download/
+
+Para instalar Laravel, abrimos la consola bash y nos ubicamos en la siguiente ruta **cd /c/xampp/htdocs**
+
+Despues ingresamos el siguiente comando **composer global require Laravel/installer** esto lo que hará es instalar Laravel.
+
+Luego podriamos verificar la version de PHP con el comando **php -v**.
+
+Para el correcto funcionamiento del LMS debemos de instalar las siguientes librerias:
+
+**Las primeros 4 comandos son para integrar y configurar la plantilla Jetstream se instalan todas sus librerias, esta es la que trae Login y Registro, para un correcto funcionamiento de login y registro debes de instalar estas librerias, para que en el proceso no surjan errores.** 
+- composer laravel/jetstream
+- php artisan jetstream:install livewire
+- npm install
+- npm run build
+
+**El siguiente comando es para linkear el Storage dentro de la carpeta del proyecto, para que al momento de que el usuario desee tener una foto de perfil, el programa sepa donde encontrar el archivo donde se encuentra la imagen.** 
+- php artisan storage:link
+
+**Con este comando se publican todas las vistas de la plantilla Jetstream que se encuentran en la carpeta vendor, permitiendo así poder visualizar las vistas y manipular la plantilla Jetstream**
+- php artisan vendor:publish --tag-jetstream-views
+
+**Con estos dos comando se integra la plantilla del Administrador y es necesaria para que no salga un error al momento de compilar**
+- composer require jeroennoten/laravel-adminlte
+- php artisan adminlte:install
+
+**Con estos comandos se instala y se configura la libreria de Roles, para poder configurar los permisos, necesaria para que no surjan errores en el despliegue del proyecto** 
+- composer require spatie/laravel-permission
+- php artisan vendor:publish --provider="Spatie/Permission/PermissionServiceProvider"
+
+
