@@ -104,4 +104,14 @@ Para el correcto funcionamiento del LMS debemos de instalar las siguientes libre
 - composer require spatie/laravel-permission
 - php artisan vendor:publish --provider="Spatie/Permission/PermissionServiceProvider"
 
+**Luego de haber instalado y configurado todo el proyecto con los comandos anteriormente mencionados, se deben llevar a cabo las migraciones del proyecto para asi estructurar la base de datos y esto se logra mediante el siguiente comando.**
+- php artisan migrate --seed
+
+**Posteriormente el proyecto quedara listo, y lo que faltaria seria correr el servidor en el que esta alojado el proyecto y acceder a el mediante el linkeo del mismo**
+- php artisan serve
+
+**Para el inicio de sesion dentro del aplicativo se ha destinado un usuario con el rol de estudiante para las respectivas revisiones de ese modulo**
+- **Dentro del campo email=** estudiante@gmail.com
+- **Dentro del campo password=** 123456789 
+
 
