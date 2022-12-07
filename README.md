@@ -84,17 +84,24 @@ Luego podriamos verificar la version de PHP con el comando **php -v**.
 
 Para el correcto funcionamiento del LMS debemos de instalar las siguientes librerias:
 
-**Las primeras 4 librerias son para integrar y configurar la plantilla Jetstream, esta es la que trae Login y Registro,**
-**para un correcto funcionamiento de login y registro debes de instalar estas librerias, para que en el proceso no surjan**
-**errores.** 
+**Las primeros 4 comandos son para integrar y configurar la plantilla Jetstream se instalan todas sus librerias, esta es la que trae Login y Registro, para un correcto funcionamiento de login y registro debes de instalar estas librerias, para que en el proceso no surjan errores.** 
 - composer laravel/jetstream
 - php artisan jetstream:install livewire
 - npm install
 - npm run build
 
-**La siguiente libreria es para linkear el Storage dentro de la carpeta del proyecto, para que al momento de que el usuario**
-**desee tener una foto de perfil, el programa sepa donde encontrar el archivo donde se encuentra la imagen.** 
+**El siguiente comando es para linkear el Storage dentro de la carpeta del proyecto, para que al momento de que el usuario desee tener una foto de perfil, el programa sepa donde encontrar el archivo donde se encuentra la imagen.** 
 - php artisan storage:link
 
+**Con este comando se publican todas las vistas de la plantilla Jetstream que se encuentran en la carpeta vendor, permitiendo así poder visualizar las vistas y manipular la plantilla Jetstream**
+- php artisan vendor:publish --tag-jetstream-views
+
+**Con estos dos comando se integra la plantilla del Administrador y es necesaria para que no salga un error al momento de compilar**
+- composer require jeroennoten/laravel-adminlte
+- php artisan adminlte:install
+
+**Con estos comandos se instala y se configura la libreria de Roles, para poder configurar los permisos, necesaria para que no surjan errores en el despliegue del proyecto** 
+- composer require spatie/laravel-permission
+- php artisan vendor:publish --provider="Spatie/Permission/PermissionServiceProvider"
 
 
