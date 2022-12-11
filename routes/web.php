@@ -5,20 +5,14 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\Teacher\TeacherController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Ruta Principal
 
 Route::get('/', HomeController::class)->name('home');
+
+// Rutas Estudiante
 
 Route::controller(CourseController::class)->group(function() {
     Route::get('course', 'index')->name('course.index');
@@ -52,10 +46,22 @@ Route::controller(GroupController::class)->group(function() {
     Route::delete('group/{id}', 'destroy')->name('group.destroy');
 });
 
+Route::get('student', [StudentController::class, 'index'])->name('student.index');
+
+// Rutas Email
+
 Route::get('contactus', [ContactUsController::class, 'index'])->name('contactUs.index');
 Route::post('contactus', [ContactUsController::class, 'store'])->name('contactUs.store');
 
-Route::get('student', [StudentController::class, 'index'])->name('student.index');
+
+// Rutas Profesor
+
+Route::resource('teacher', TeacherController::class)->middleware('can:teacher')->names('teacher');
+Route::get('tracing/{id}/student/{id_g}', [TeacherController::class, 'tracing'])->middleware('can:tracing')->name('tracing');
+Route::post('tracing/edit', [TeacherController::class, 'tracingEdit'])->middleware('can:tracing')->name('tracingEdit');
+Route::post('tracing/final', [TeacherController::class, 'final'])->middleware('can:tracing')->name('final');
+
+
 
 Route::middleware([
     'auth:sanctum',

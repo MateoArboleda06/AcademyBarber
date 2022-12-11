@@ -62,7 +62,7 @@ class CoursesController extends Controller
             'teacher' => request('teacher', null)
         ]);
 
-        return redirect()->route('admin.courses.edit', $course)->with('info', 'The course was successfully created');;
+        return redirect()->route('admin.courses.edit', $course)->with('info', 'The course was successfully created');
     }
 
     /**
