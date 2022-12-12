@@ -92,8 +92,11 @@
                 {{--                 <div class="red-social">
                     <a href="https://wa.me/+573016389477" class="fa-brands fa-whatsapp"></a>
                 </div> --}}
-                <section class="buttons">
+{{--                 <section class="buttons">
                     <a href="https://wa.me/+573016389477" class="fa-brands fa-whatsapp"></a>
+                </section> --}}
+                <section class="buttons">
+                    <a href="https://wa.me/+573016389477?text=Hola%20¿%20Cómo%20estás?" class="fa-brands fa-whatsapp"></a>
                 </section>
             </div>
         </div>

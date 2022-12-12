@@ -335,7 +335,7 @@ return [
             'icon' => 'fab fa-fw fa-buffer fa-spin',
         ],
         
-        ['header' => 'labels'],
+/*         ['header' => 'labels'],
         [
             'text'       => 'important',
             'icon_color' => 'red',
@@ -350,16 +350,12 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ], */
 /*         [
             'text'       => 'Dark mode',
             'icon'       => 'fas fa-moon',
             'url'        => '#',
         ], */
-        [
-            'type'       => 'sidebar-menu-button',
-            'text'       => 'Darkmode',
-        ],
     ],
 
     /*

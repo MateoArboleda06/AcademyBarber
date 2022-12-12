@@ -18,44 +18,48 @@
         <div class="card-body">
             {!! Form::open(['route' => 'admin.courses.store']) !!}
 
-                <div class="form-group">
-                    {!! Form::label('name', 'Name') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name Course', 'required']) !!}
-                    {{-- techaer --}}
-                </div>
+            <div class="form-group">
+                {!! Form::label('name', 'Name') !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name Course', 'required']) !!}
+                {{-- techaer --}}
+            </div>
 
-                @error('name')
-                    <span class="text-danger">{{ $message }}*</span>
-                @enderror
+            @error('name')
+                <span class="text-danger">{{ $message }}*</span>
+            @enderror
 
-                <div class="form-group">
-                    {!! Form::label('semester', 'Semester') !!}
-                    {!! Form::text('semester', null, ['class' => 'form-control', 'placeholder' => 'Semester Course', 'required']) !!}
-                </div>
+            <div class="form-group">
+                {!! Form::label('semester', 'Semester') !!}
+                {!! Form::text('semester', null, ['class' => 'form-control', 'placeholder' => 'Semester Course', 'required']) !!}
+            </div>
 
-                @error('semester')
-                    <span class="text-danger">{{ $message }}*</span>
-                @enderror
+            @error('semester')
+                <span class="text-danger">{{ $message }}*</span>
+            @enderror
 
-                <div class="form-group">
-                    {!! Form::label('teacher', 'Teacher') !!}
-                    {{ Form::select('teacher', $usuarios, null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'teacher', 'required', 'placeholder' => 'Select.....']) }}
-                </div>
+            <div class="form-group">
+                {!! Form::label('teacher', 'Teacher') !!}
+                {{ Form::select('teacher', $usuarios, null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'teacher', 'required', 'placeholder' => 'Select.....']) }}
+            </div>
 
-                @error('teacher')
-                    <span class="text-danger">{{ $message }}*</span>
-                @enderror
+            @error('teacher')
+                <span class="text-danger">{{ $message }}*</span>
+            @enderror
 
-                <div class="form-group">
-                    {!! Form::label('description', 'Description') !!}
-                    {!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Description Course', 'required']) !!}
-                </div>
+            <div class="form-group">
+                {!! Form::label('description', 'Description') !!}
+                {!! Form::textarea('description', null, [
+                    'class' => 'form-control',
+                    'placeholder' => 'Description Course',
+                    'required',
+                ]) !!}
+            </div>
 
-                @error('description')
-                    <span class="text-danger">{{ $message }}*</span>
-                @enderror
+            @error('description')
+                <span class="text-danger">{{ $message }}*</span>
+            @enderror
 
-                {!! Form::submit('Create Course', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Create Course', ['class' => 'button3']) !!}
 
             {!! Form::close() !!}
         </div>
@@ -125,17 +129,48 @@
                 background-position: 100% 50%;
             }
         }
+
+        .button3 {
+            background: linear-gradient(to bottom right, rgb(106, 255, 0), rgba(28, 27, 23));
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+
+            width: auto;
+            height: auto;
+        }
+
+        .button3:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .button3:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
     </style>
 @stop
 
 @section('js')
-    <script> 
-
+    <script>
         $('.select2').select2({
             'placeholder': 'Select.....'
         });
 
         //$('select[name="teacher"] option:selected').text()
-
     </script>
 @stop

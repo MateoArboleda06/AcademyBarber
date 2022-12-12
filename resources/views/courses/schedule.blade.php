@@ -1,5 +1,5 @@
 <x-app-layout>
-    <h1 class="welcome">Schedule's Student {{ $user }}</h1>
+    <h1 class="wel">Schedule's Student {{ $user }}</h1>
     <br>
 
 
@@ -62,6 +62,11 @@
         text-align: center;
         color: white;
         text-shadow: black 0.1em 0.1em 0.2em;
+        font-size: 26px;
+    }
+    .wel {
+        text-align: center;
+        text-shadow: #603000 0.1em 0.1em 0.2em;
         font-size: 26px;
     }
 
