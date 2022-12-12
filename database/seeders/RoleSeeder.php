@@ -45,5 +45,10 @@ class RoleSeeder extends Seeder
 
         Permission::create(['name' => 'course.index'])->assignRole($role2);     
         Permission::create(['name' => 'student.index'])->assignRole($role2);     
+
+        //Permisos profesor
+
+        Permission::create(['name' => 'teacher'])->assignRole($role3);
+        Permission::create(['name' => 'tracing'])->assignRole($role3);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Group;
+use App\Models\Record;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -209,7 +210,7 @@ class GroupsController extends Controller
 
     public function asignar(Request $request){
 
-        //dd($request);
+        // dd($request);
         
         try {
             
@@ -217,16 +218,61 @@ class GroupsController extends Controller
             $asignados = request('list_students', null);
 
             $group = Group::where('id', request('group', null))->first();
+            $course = Course::where('name', $group->course)->first();
 
-            //dd($group);
+            /* $record = Record::where('id_user', )
+                                ->where('id_course', $course->id)->first(); */
+
+            // dd($record);
+            // dd($course);
+            // dd($group);
+            // dd($asignados);
 
             foreach($asignados as $asignado){
 
-                $group->users()->attach($asignado);
+                $i = 0;
+                $record = Record::where('id_user', $asignado)
+                                ->where('id_course', $course->id)->first();
+                $cont = DB::table('group_user')
+                            ->where('group_id', request('group', null))
+                            ->where('user_id', $asignado)->count();
+
+                // dd($cont);
+                // dd($record);
+
+                if($cont == 0){
+
+                    if(is_null($record)){
+                        // dd('hola 1');
+                        $group->users()->attach($asignado);
+    
+                        Record::create([
+                            'id_user' => $asignado,
+                            'id_course' => $course->id,
+                            'num_viewd' => $i
+                        ]);
+                    } elseif($record->num_viewd == 0){
+                        // dd($record);
+    
+                        $group->users()->attach($asignado);
+    
+                        $record->num_viewd = $i+1;
+                        $record->save();
+                    } elseif($record->num_viewd == 1){
+                        // dd('hola 3');
+    
+                        $group->users()->attach($asignado);
+    
+                        $record->num_viewd = $i+2;
+                        $record->save();
+                    }
+                }
+
+                // return response()->json('user ya registrado');
 
             }
 
-            return redirect()->route('admin.groups.create')->with('info', 'The assignement was successfully');
+            return response()->json('sucess');
 
         } catch (Exception $th) {
             dd($th);
