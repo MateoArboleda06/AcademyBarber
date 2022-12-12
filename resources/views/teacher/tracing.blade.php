@@ -50,9 +50,9 @@
                         <span class="text-danger">{{ $message }}*</span>
                     @enderror
 
-                    {!! Form::submit('Upload Notes', ['class' => 'btn btn-rounded btn-primary']) !!}
+                    {!! Form::submit('Upload Notes', ['class' => 'button2']) !!}
 
-                    <button class="btn btn-rounded btn-success" id="notes_final" onclick="final({{ $student->id }}, {{ $group->id }})">Notes Final</button>
+                    <button class="button" id="notes_final" onclick="final({{ $student->id }}, {{ $group->id }})">Notes Final</button>
                 {!! Form::close() !!}
             </div>
         </div>
@@ -112,9 +112,9 @@
                         <span class="text-danger">{{ $message }}*</span>
                     @enderror
 
-                    {!! Form::submit('Upload Notes', ['class' => 'btn btn-rounded btn-primary']) !!}
+                    {!! Form::submit('Upload Notes', ['class' => 'button2']) !!}
 
-                    <button class="btn btn-rounded btn-success" id="notes_final" onclick="final({{ $student->id }}, {{ $group->id }})">Notes Final</button>
+                    <button class="button" id="notes_final" onclick="final({{ $student->id }}, {{ $group->id }})">Notes Final</button>
                 {!! Form::close() !!}
             </div>
         </div>
@@ -255,38 +255,71 @@
         text-align: center;
     }
 
-    .anime {
-        animation-duration: 3s;
-        animation-name: slidein;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-    }
+    .button {
+            background: linear-gradient(to bottom right, rgb(106, 255, 0), rgba(28, 27, 23));
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
 
-    .h1 {
-        text-shadow:
-            3px 3px 1px #272727,
-            5px 5px 2px white,
-            8px 8px 3px rgba(84, 49, 27);
-        ;
-    }
-
-    .text-gradient {
-        color: transparent;
-        background-image: linear-gradient(to left, #272727, #3498db, rgba(84, 49, 27));
-        background-clip: text;
-        animation: color 5s linear infinite;
-        background-size: 500%;
-    }
-
-    @keyframes color {
-        from {
-            background-position: 0% 50%;
+            width: auto;
+            height: auto;
         }
 
-        to {
-            background-position: 100% 50%;
+        .button:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
         }
-    }
+
+        .button:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .button2 {
+            background: linear-gradient(to bottom right, rgb(0, 204, 255), rgba(28, 27, 23));
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+
+            width: auto;
+            height: auto;
+        }
+
+        .button2:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .button2:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
 </style>
 
     
