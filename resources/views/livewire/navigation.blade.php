@@ -39,8 +39,11 @@
 
                 {{-- logotipo --}}
                 <a href="/" class="flex flex-shrink-0 items-center">
-                    <img class="block h-10 w-auto lg:hidden" src="academ.png" alt="Your Company">
+                    {{--                     <img class="block h-10 w-auto lg:hidden" src="academ.png" alt="Your Company">
                     <img class="hidden h-10 w-auto lg:block" src="academ.png" alt="Your Company">
+ --}}
+                    <img class="block h-10 w-auto lg:hidden" src="/academ.png" alt="Your Company">
+                    <img class="hidden h-10 w-auto lg:block" src="/academ.png" alt="Your Company">
                 </a>
 
                 {{-- Menu --}}

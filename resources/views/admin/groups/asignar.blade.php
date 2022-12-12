@@ -37,8 +37,8 @@
                                 <td>{{ $usuario->id }}</td>
                                 <td>{{ $usuario->name }}</td>
                                 <td>
-                                    <button class="btn btn-rounded btn-warning" id="asignar_student_{{ $usuario->id }}" onclick="asignados({{ $usuario->id }})">Asignement</button>
-                                    <button class="btn btn-rounded btn-danger" id="desasignar_student_{{ $usuario->id }}" onclick="desasignados({{ $usuario->id }})">Cancel</button>
+                                    <button class="button1" id="asignar_student_{{ $usuario->id }}" onclick="asignados({{ $usuario->id }})">Asignement</button>
+                                    <button class="button2" id="desasignar_student_{{ $usuario->id }}" onclick="desasignados({{ $usuario->id }})">Cancel</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -51,7 +51,7 @@
 
     <div class="row">
         <div class="col text-center">
-            <button type="submit" class="btn btn-rounded btn-primary" id="enviar_asignacion">Save</button>
+            <button type="submit" class="button" id="enviar_asignacion">Save</button>
         </div>
     </div>
 @stop
@@ -119,6 +119,105 @@
             to {
                 background-position: 100% 50%;
             }
+        }
+
+        .button {
+            background: linear-gradient(to bottom right, rgb(106, 255, 0), rgba(28, 27, 23));
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+
+            width: auto;
+            height: auto;
+        }
+
+        .button:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .button:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .button1 {
+            background: linear-gradient(to bottom right, rgb(255, 208, 1), rgba(28, 27, 23));
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+
+            width: auto;
+            height: auto;
+        }
+
+        .button1:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .button1:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .button2 {
+            background: linear-gradient(to bottom right, rgb(255, 0, 0), rgba(28, 27, 23));
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+
+            width: auto;
+            height: auto;
+        }
+
+        .button2:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .button2:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
         }
     </style>
 @stop

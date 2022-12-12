@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <div>
-        <h1 class="welcome">Welcome to Courses</h1>
+        <h1 class="wel">Welcome to Courses</h1>
         <br>
 {{--         <div class="flex justify-center">
             <a href="{{ route('course.create') }}">
@@ -73,6 +73,10 @@
         color: white;
         text-shadow: black 0.1em 0.1em 0.2em;
         font-size: 28px;
+    }    .wel {
+        text-align: center;
+        text-shadow: #603000 0.1em 0.1em 0.2em;
+        font-size: 26px;
     }
 
     /*     .button {
