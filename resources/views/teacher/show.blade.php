@@ -1,16 +1,23 @@
 <x-app-layout>
 
-
-    {{-- @section('content_header')
-        <h1>Information {{ $name_group }}</h1>
-    @stop --}}
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{ session('info') }}</strong>
+        </div>
+    @endif
 
     <div class="card">
 
         <div class="card-header">
             <div class="row">
-                <h2 class="h5">Information {{ $name_group }}</h2>
-                <h2><strong>Course: </strong>{{ $group->course }}</h2>
+                <div class="col-6">
+                    <h2 class="h5">Information {{ $name_group }}</h2>
+                    <h2><strong>Course: </strong>{{ $group->course }}</h2>
+                </div>
+
+                <div class="col-6">
+                    <button class="btn btn-rounded btn-success">End</button>
+                </div>
             </div>
         </div>
 
@@ -21,7 +28,10 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>email</th>
+                        <th>Email</th>
+                        <th>Num. Times Viewed</th>
+                        <th>Status</th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -31,7 +41,19 @@
                             <td>{{ $student->id }}</td>
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->email }}</td>
-                            <td width="10px">
+                        
+                            @foreach ($records as $record)
+                                @if ($record->id_user == $student->id && $record->id_course == $group->course_id)
+                                    <td>{{ $record->num_viewd }}</td>
+                                @endif
+                            @endforeach
+                            @foreach ($ratings as $rating)
+                                @if ($rating->id_user == $student->id && $rating->id_group == $group->id)
+                                    <td>{{ $rating->status }}</td>
+                                @endif
+                            @endforeach 
+                            
+                            <td >
                                 <a class="btn btn-primary btn-md" href="{{ route('tracing', ['id' => $student, 'id_g' => $group]) }}">Tracing</a>
                             </td>
                         </tr>

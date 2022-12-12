@@ -1,6 +1,12 @@
 <x-app-layout>
+
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{ session('info') }}</strong>
+        </div>
+    @endif
     
-    @if (is_null($traicing))
+    @if (is_null($traicing->partial_one))
 
         <div class="card">
             <div class="card-body">
@@ -62,7 +68,7 @@
             </div>
         </x-slot:footer>
         
-    @elseif (!is_null($traicing) && is_null($traicing->status))
+    @elseif (!is_null($traicing->partial_one) && is_null($traicing->final))
         
         <div class="card">
             <div class="card-body">
@@ -124,7 +130,7 @@
             </div>
         </x-slot:footer>
     
-    @else
+    @elseif(!is_null($traicing->final))
 
         <div class="card">
             <div class="card-body">

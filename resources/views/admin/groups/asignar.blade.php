@@ -124,9 +124,8 @@
 @stop
 
 @section('js')
-
-  
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     
     <script>
 
@@ -173,6 +172,13 @@
                 },
                 dataType: "json",
                 success: function(response){
+
+                    if(response == 'success'){
+
+                        window.location.reload();
+
+                        return;
+                    }
 
                 }
             })

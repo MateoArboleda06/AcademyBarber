@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Teacher;
 use App\Http\Controllers\Controller;
 use App\Models\Group;
 use App\Models\Ratings;
+use App\Models\Record;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class TeacherController extends Controller
 {
@@ -28,14 +30,23 @@ class TeacherController extends Controller
     
     public function store(Request $request)
     {
+        $rating = Ratings::where('id_user', $request->invisible_student)
+                            ->where('id_group', $request->invisible_group)->first();
+
+        // dd($rating);
         // dd($request);
-        Ratings::create([
+        $rating->tracing = $request->tracing;
+        $rating->partial_one = $request->partial_one;
+        $rating->partial_two = $request->partial_two;
+
+        $rating->save();
+        /* Ratings::create([
             'id_user' => request('invisible_student', null),
             'id_group' => request('invisible_group', null),
             'tracing' => request('tracing', null),
             'partial_one' => request('partial_one', null),
             'partial_two' => request('partial_two', null)
-        ]);
+        ]); */
 
         return redirect()->route('teacher.show', $request->invisible_group)->with('info', 'The notes have been uploaded successfully');
     }
@@ -44,6 +55,9 @@ class TeacherController extends Controller
     {
         // dd($id);
         $group = Group::find($id);
+        $records = Record::all();
+        $ratings = Ratings::all();
+        // dd($records);
 
         $name_group = $group->name;
         // dd($group);
@@ -51,7 +65,7 @@ class TeacherController extends Controller
 
         // dd($students);
 
-        return view('teacher.show', compact('group', 'students', 'name_group'));
+        return view('teacher.show', compact('group', 'students', 'name_group', 'records','ratings'));
     }
 
     public function edit($id)
@@ -83,6 +97,8 @@ class TeacherController extends Controller
 
     public function tracingEdit(Request $request){
 
+        // dd($request);
+
         $rating = Ratings::where('id_user', $request->invisible_student)
                             ->where('id_group', $request->invisible_group)->first();
 
@@ -99,7 +115,7 @@ class TeacherController extends Controller
         // dd($group);
         $students = $group->users;
                             
-        return view('teacher.show', compact('group', 'students', 'name_group'));
+        return Redirect::back()->with('info', 'Changes made successfully');
     }
 
     public function final(Request $request){
@@ -109,7 +125,7 @@ class TeacherController extends Controller
 
         // dd($request);
 
-        if(is_null($rating)){
+        /* if(is_null($rating)){
             Ratings::create([
                 'id_user' => request('id_user', null),
                 'id_group' => request('id_group', null),
@@ -121,7 +137,7 @@ class TeacherController extends Controller
             ]);
 
             return response()->json('success');
-        }
+        } */
 
         // dd('hola');
 
