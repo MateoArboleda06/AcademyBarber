@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use JeroenNoten\LaravelAdminLte\View\Components\Widget\Progress;
 
 class CourseController extends Controller
 {
@@ -134,7 +135,7 @@ class CourseController extends Controller
     }
 
     public function informationCourse(){
-
+        
         $cant_courses = Course::count();
         $cant_vistas = 2;
         $cant_faltantes = Course::where([['name', '!=', 'Sale and Consulting'], ['name', '!=', 'Hair Color Change Techniques']])->count();
@@ -142,6 +143,8 @@ class CourseController extends Controller
         $name_viwed2 = Course::where('name', 'Hair Color Change Techniques')->get();
         $names_missed = Course::where([['name', '!=', 'Sale and Consulting'], ['name', '!=', 'Hair Color Change Techniques']])->get();
 
-        return view('courses.information', compact('cant_courses', 'cant_vistas', 'cant_faltantes', 'name_viwed1', 'name_viwed2', 'names_missed'));
+        $progress = (($cant_faltantes*10)-(($cant_faltantes+$cant_vistas)*10))*-1;
+
+        return view('courses.information', compact('cant_courses', 'cant_vistas', 'cant_faltantes', 'name_viwed1', 'name_viwed2', 'names_missed', 'progress'));
     }
 }

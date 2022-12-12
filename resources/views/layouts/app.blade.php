@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Home</title>
+    <title>Barber Academy</title>
 
     <link href="{{ asset('/style.css') }}" rel="stylesheet">
     {{-- <script src="{{ asset('/darkmode.js') }}"></script> --}}

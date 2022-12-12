@@ -22,16 +22,16 @@
             <h2 class="h5">List Roles</h2>
             {!! Form::model($user, ['route' => ['admin.users.update', $user], 'method' => 'put']) !!}
 
-                @foreach ($roles as $role)
-                    <div>
-                        <label>
-                            {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
-                            {{ $role->name }}
-                        </label>
-                    </div>
-                @endforeach
+            @foreach ($roles as $role)
+                <div>
+                    <label>
+                        {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
+                        {{ $role->name }}
+                    </label>
+                </div>
+            @endforeach
 
-                {!! Form::submit('Assignement Role', ['class' => 'btn btn-primary mt-2']) !!}
+            {!! Form::submit('Assignement Role', ['class' => 'button']) !!}
 
             {!! Form::close() !!}
         </div>
@@ -101,13 +101,43 @@
                 background-position: 100% 50%;
             }
         }
+
+        .button {
+            background: linear-gradient(to bottom right, rgb(255, 208, 1), rgba(28, 27, 23));
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+
+            width: auto;
+            height: auto;
+        }
+
+        .button:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .button:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
     </style>
 @stop
 
 @section('js')
 
-    <script> 
-            
-
-    </script>
+    <script></script>
 @stop

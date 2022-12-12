@@ -39,8 +39,11 @@
 
                 {{-- logotipo --}}
                 <a href="/" class="flex flex-shrink-0 items-center">
-                    <img class="block h-10 w-auto lg:hidden" src="academ.png" alt="Your Company">
+                    {{--                     <img class="block h-10 w-auto lg:hidden" src="academ.png" alt="Your Company">
                     <img class="hidden h-10 w-auto lg:block" src="academ.png" alt="Your Company">
+ --}}
+                    <img class="block h-10 w-auto lg:hidden" src="/academ.png" alt="Your Company">
+                    <img class="hidden h-10 w-auto lg:block" src="/academ.png" alt="Your Company">
                 </a>
 
                 {{-- Menu --}}
@@ -66,7 +69,8 @@
 
                         @can('course.index')
                             <a href="{{ route('student.informationCourse') }}"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Information Courses
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Information
+                                Courses
 
                             </a>
                         @endcan
