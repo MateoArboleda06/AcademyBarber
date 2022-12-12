@@ -107,17 +107,28 @@ class TeacherController extends Controller
         $rating = Ratings::where('id_user', $request->id_user)
                             ->where('id_group', $request->id_group)->first();
 
-        // dd($rating);
+        // dd($request);
+
+        if(is_null($rating)){
+            Ratings::create([
+                'id_user' => request('id_user', null),
+                'id_group' => request('id_group', null),
+                'tracing' => request('tracing', null),
+                'partial_one' => request('partial_one', null),
+                'partial_two' => request('partial_two', null),
+                'final' => request('final', null),
+                'status' => request('status', null)
+            ]);
+
+            return response()->json('success');
+        }
+
+        // dd('hola');
+
         $rating->final = $request->final;
         $rating->status = $request->status;
 
         $rating->save();
-
-        $group = Group::find($request->id_group);
-
-        $name_group = $group->name;
-        // dd($group);
-        $students = $group->users;
                             
         return response()->json('success');
     }

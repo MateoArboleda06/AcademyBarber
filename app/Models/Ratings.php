@@ -16,6 +16,8 @@ class Ratings extends Model
         'id_group',
         'tracing',
         'partial_one',
-        'partial_two'
+        'partial_two',
+        'final',
+        'status'
     ];
 }
