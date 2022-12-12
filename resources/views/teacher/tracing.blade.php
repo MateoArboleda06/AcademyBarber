@@ -199,6 +199,9 @@
                 data: {
                     "id_user": studentID,
                     "id_group": groupID,
+                    "tracing": tracing,
+                    "partial_one": partialOne,
+                    "partial_two": partialTwo,
                     "final": final,
                     "status": status
                 },
