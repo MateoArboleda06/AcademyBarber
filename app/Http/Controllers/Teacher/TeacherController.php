@@ -148,4 +148,25 @@ class TeacherController extends Controller
                             
         return response()->json('success');
     }
+
+    public function endCourse(Request $request){
+
+        // dd($request->list_students[0]['name']); 
+        
+        foreach ($request->list_students as $student) {
+
+            // dd($student['id']);
+
+            DB::table('group_user')->where('group_id', request('id_group', null))
+                                    ->where('user_id', $student['id'])->delete();
+
+            Ratings::where('id_group', request('id_group', null))
+                    ->where('id_user', $student['id'])->delete();
+            
+        }
+
+        // $student = DB::table('group_user')->where('group_id', request('id_group', null))->delete();
+
+        return response()->json('success');
+    }
 }
