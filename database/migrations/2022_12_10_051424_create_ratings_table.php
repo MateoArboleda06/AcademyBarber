@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('id_user');
             $table->string('id_group');
-            $table->string('tracing');
-            $table->string('partial_one');
-            $table->string('partial_two');
+            $table->string('tracing')->nullable();
+            $table->string('partial_one')->nullable();
+            $table->string('partial_two')->nullable();
         });
     }
 

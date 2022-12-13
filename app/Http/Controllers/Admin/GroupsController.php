@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Group;
+use App\Models\Ratings;
 use App\Models\Record;
 use Exception;
 use Illuminate\Http\Request;
@@ -214,7 +215,7 @@ class GroupsController extends Controller
         
         try {
             
-            $group = request('group', null);
+            // $group = request('group', null);
             $asignados = request('list_students', null);
 
             $group = Group::where('id', request('group', null))->first();
@@ -251,6 +252,12 @@ class GroupsController extends Controller
                             'id_course' => $course->id,
                             'num_viewd' => $i
                         ]);
+
+                        Ratings::create([
+                            'id_user' => $asignado,
+                            'id_group' => $group->id,
+                            'status' => "In Process..."
+                        ]);
                     } elseif($record->num_viewd == 0){
                         // dd($record);
     
@@ -258,13 +265,25 @@ class GroupsController extends Controller
     
                         $record->num_viewd = $i+1;
                         $record->save();
-                    } elseif($record->num_viewd == 1){
+
+                        Ratings::create([
+                            'id_user' => $asignado,
+                            'id_group' => $group->id,
+                            'status' => "In Process..."
+                        ]);
+                    } else  if($record->num_viewd == 1){
                         // dd('hola 3');
     
                         $group->users()->attach($asignado);
     
                         $record->num_viewd = $i+2;
                         $record->save();
+
+                        Ratings::create([
+                            'id_user' => $asignado,
+                            'id_group' => $group->id,
+                            'status' => "In Process..."
+                        ]);
                     }
                 }
 
@@ -272,7 +291,7 @@ class GroupsController extends Controller
 
             }
 
-            return response()->json('sucess');
+            return response()->json('success');
 
         } catch (Exception $th) {
             dd($th);

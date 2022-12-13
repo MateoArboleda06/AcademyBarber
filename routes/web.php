@@ -60,6 +60,7 @@ Route::resource('teacher', TeacherController::class)->middleware('can:teacher')-
 Route::get('tracing/{id}/student/{id_g}', [TeacherController::class, 'tracing'])->middleware('can:tracing')->name('tracing');
 Route::post('tracing/edit', [TeacherController::class, 'tracingEdit'])->middleware('can:tracing')->name('tracingEdit');
 Route::post('tracing/final', [TeacherController::class, 'final'])->middleware('can:tracing')->name('final');
+Route::post('tracing/end', [TeacherController::class, 'endCourse'])->name('end');
 
 
 

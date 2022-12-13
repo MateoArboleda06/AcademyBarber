@@ -1,16 +1,23 @@
 <x-app-layout>
 
-
-    {{-- @section('content_header')
-        <h1>Information {{ $name_group }}</h1>
-    @stop --}}
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{ session('info') }}</strong>
+        </div>
+    @endif
 
     <div class="card">
 
         <div class="card-header">
             <div class="row">
-                <h2 class="h5 wel">Information {{ $name_group }}</h2>
-                <h2 class="wel"><strong>Course: </strong>{{ $group->course }}</h2>
+                <div class="col-6">
+                    <h2 class="h5 wel">Information {{ $name_group }}</h2>
+                    <h2 class="wel"><strong>Course: </strong>{{ $group->course }}</h2>
+                </div>
+
+                <div class="col-6">
+                    <button class="btn btn-rounded btn-success" id="eliminar_estudiantes" onclick="destroy({{ $group->id }}, {{ $students }})">End Course</button>
+                </div>
             </div>
         </div>
 
@@ -21,7 +28,10 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>email</th>
+                        <th>Email</th>
+                        <th>Num. Times Viewed</th>
+                        <th>Status</th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -31,7 +41,19 @@
                             <td>{{ $student->id }}</td>
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->email }}</td>
-                            <td width="10px">
+                        
+                            @foreach ($records as $record)
+                                @if ($record->id_user == $student->id && $record->id_course == $group->course_id)
+                                    <td>{{ $record->num_viewd }}</td>
+                                @endif
+                            @endforeach
+                            @foreach ($ratings as $rating)
+                                @if ($rating->id_user == $student->id && $rating->id_group == $group->id)
+                                    <td>{{ $rating->status }}</td>
+                                @endif
+                            @endforeach 
+                            
+                            <td >
                                 <a class="button"
                                     href="{{ route('tracing', ['id' => $student, 'id_g' => $group]) }}">Tracing</a>
                             </td>
@@ -49,8 +71,46 @@
     </x-slot:footer>
 </x-app-layout>
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+
+    function destroy($id_group, $students){
+
+        event.preventDefault();
+
+        $.ajax({
+                type: "POST",
+                url: "{{ route('end') }}",
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data: {
+                    "id_group": $id_group,
+                    "list_students": $students
+                },
+                dataType: "json",
+                success: function(response){
+
+                    if(response == 'success'){
+
+                        window.location.reload();
+
+                        return;
+                    }
+
+                }
+            });
+    }
 
 
+</script>
+
+
+<style>
+    .body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        background: linear-gradient(0deg, rgba(84, 49, 27) 0%, rgb(255, 255, 255) 150%);
+    }
 <style>
     .body {
         font-family: Arial, Helvetica, sans-serif;
@@ -70,6 +130,9 @@
     .navi {
         background-color: #272727;
     }
+    .navi {
+        background-color: #272727;
+    }
 
     .barber {
         background: rgba(84, 49, 27);
@@ -83,36 +146,36 @@
         text-align: center;
     }
 
-    .button {
-        background: linear-gradient(to bottom right, rgba(164, 120, 93), rgba(28, 27, 23));
-        border: 0;
-        border-radius: 12px;
-        color: #FFFFFF;
-        cursor: pointer;
-        display: inline-block;
-        font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 2.5;
-        outline: transparent;
-        padding: 0 1rem;
-        text-align: center;
-        text-decoration: none;
-        transition: box-shadow .2s ease-in-out;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        white-space: nowrap;
+        .anime {
+            animation-duration: 3s;
+            animation-name: slidein;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
 
-        width: auto;
-        height: auto;
-    }
+        .h1 {
+            text-shadow:
+                3px 3px 1px #272727,
+                5px 5px 2px white,
+                8px 8px 3px rgba(84, 49, 27);
+            ;
+        }
 
-    .button:not([disabled]):focus {
-        box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
-    }
+        .text-gradient {
+            color: transparent;
+            background-image: linear-gradient(to left, #272727, #3498db, rgba(84, 49, 27));
+            background-clip: text;
+            animation: color 5s linear infinite;
+            background-size: 500%;
+        }
 
-    .button:not([disabled]):hover {
-        box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
-    }
-</style>
+        @keyframes color {
+            from {
+                background-position: 0% 50%;
+            }
+
+            to {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
