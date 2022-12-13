@@ -7,41 +7,25 @@
         <a href="{{ route('course.index') }}"><button class="button">Back to Courses</button></a>
         <br>
         <br>
-{{--         <p class="showinfo"><strong>Semester: </strong>{{ $course->semester }}</p>
-        <p class="showinfo">{{ $course->description }}</p>
-        <p class="showinfo"><strong>Teacher: </strong>{{ $course->teacher }}</p>
-        <br> --}}
-
-        {{--         <a href="#"><button class="button">Seguimiento</button></a>
-        <br>
-        <br>
-        <a href="#"><button class="button">Parcial 1</button></a>
-        <br>
-        <br>
-        <a href="#"><button class="button">Parcial 2</button></a> --}}
 
         <div class="card text-center">
             <div class="info card-header text-2xl">
                 Information
             </div>
             <div class="descrip card-body">
-                <strong class="card-title" {{-- style="font-weight: bold" --}}>Teacher: </strong>{{ $course->teacher }}
-                    {{-- <p class="card-text" style="font-weight: normal">{{ $course->teacher }}</p> --}}
+                <strong class="card-title">Teacher: </strong>{{ $course->teacher }}
                 <br>
                 <br>
                 <strong class="card-title" style="font-weight: bold">Schedule: </strong> {{ $course1[0]->schedule }}
-                    {{-- <p class="card-text" style="font-weight: normal">{{ $course1[0]->schedule }}</p> --}}
+
                 <br>
                 <br>
                 <strong class="card-title" style="font-weight: bold">Group: </strong> {{ $course->group }}
-                    {{-- <p class="card-text" style="font-weight: normal">{{ $course->group }}</p> --}}
                 
                 <br>
                 <br>
                 <strong class="card-title" style="font-weight: bold">Semester: </strong> {{ $course->semester }}
-                    {{-- <p class="card-text" style="font-weight: normal">{{ $course->semester }}</p> --}}
                 
-
             </div>
         </div>
 

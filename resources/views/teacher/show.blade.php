@@ -83,39 +83,6 @@
         text-align: center;
     }
 
-    .anime {
-        animation-duration: 3s;
-        animation-name: slidein;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-    }
-
-    .h1 {
-        text-shadow:
-            3px 3px 1px #272727,
-            5px 5px 2px white,
-            8px 8px 3px rgba(84, 49, 27);
-        ;
-    }
-
-    .text-gradient {
-        color: transparent;
-        background-image: linear-gradient(to left, #272727, #3498db, rgba(84, 49, 27));
-        background-clip: text;
-        animation: color 5s linear infinite;
-        background-size: 500%;
-    }
-
-    @keyframes color {
-        from {
-            background-position: 0% 50%;
-        }
-
-        to {
-            background-position: 100% 50%;
-        }
-    }
-
     .button {
         background: linear-gradient(to bottom right, rgba(164, 120, 93), rgba(28, 27, 23));
         border: 0;

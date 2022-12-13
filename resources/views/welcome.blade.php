@@ -2,17 +2,6 @@
     <div class="flex items-center justify-center"><img src="academ.png" alt="" style="width:30%"
             class="card-img-top"></div>
 
-    {{--     <div class="about-section">
-        <h4 class="text-2xl">About Us Page</h4>
-        <br>
-        <p>The Barber Academy is an educational platform which simplifies the administrative processes
-            for students on the one hand, and offers students an accessible and flexible e-learning environment on the
-            other.</p>
-    </div> --}}
-
-    
-    {{-- <h4 class="welcome text-2xl">Our Team</h4> --}}
-
     <div class="team">
         <div class="sticky-lg">
             <h1 class="welcome text-2xl">Team</h1>
@@ -89,14 +78,8 @@
             </div>
             <div class="box">
                 <h2>CONTACT US</h2>
-                {{--                 <div class="red-social">
-                    <a href="https://wa.me/+573016389477" class="fa-brands fa-whatsapp"></a>
-                </div> --}}
-{{--                 <section class="buttons">
-                    <a href="https://wa.me/+573016389477" class="fa-brands fa-whatsapp"></a>
-                </section> --}}
                 <section class="buttons">
-                    <a href="https://wa.me/+573016389477?text=Hola%20¿%20Cómo%20estás?" class="fa-brands fa-whatsapp"></a>
+                    <a href="https://wa.me/+573016389477?text=Hi,%20¿%20How%20are%20you?" class="fa-brands fa-whatsapp"></a>
                 </section>
             </div>
         </div>

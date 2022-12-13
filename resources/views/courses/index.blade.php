@@ -3,7 +3,7 @@
     <div>
         <h1 class="wel">Welcome to Courses</h1>
         <br>
-{{--         <div class="flex justify-center">
+        {{--         <div class="flex justify-center">
             <a href="{{ route('course.create') }}">
                 <button class="button">Create Course</button>
             </a>
@@ -73,7 +73,9 @@
         color: white;
         text-shadow: black 0.1em 0.1em 0.2em;
         font-size: 28px;
-    }    .wel {
+    }
+
+    .wel {
         text-align: center;
         text-shadow: #603000 0.1em 0.1em 0.2em;
         font-size: 26px;

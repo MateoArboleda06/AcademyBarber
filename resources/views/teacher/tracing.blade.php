@@ -7,21 +7,21 @@
                 {!! Form::open(['route' => 'teacher.store']) !!}
 
                     <div class="form-group">
-                        {!! Form::label('group', 'Group') !!}
+                        {!! Form::label('group', 'Group', ['class' => 'wel']) !!}
                         {!! Form::text('group', $group->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_group', $group->id, array('id' => 'invisible_id_group')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('student', 'Student') !!}
+                        {!! Form::label('student', 'Student', ['class' => 'wel']) !!}
                         {!! Form::text('student', $student->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_student', $student->id, array('id' => 'invisible_id_student')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('tracing', 'Tracing') !!}
+                        {!! Form::label('tracing', 'Tracing', ['class' => 'wel']) !!}
                         {!! Form::text('tracing', null, ['class' => 'form-control', 'placeholder' => 'Tracing => 50 %', 'required']) !!}
                     </div>
                     <br>
@@ -31,7 +31,7 @@
                     @enderror
 
                     <div class="form-group">
-                        {!! Form::label('partial_one', 'Partial One') !!}
+                        {!! Form::label('partial_one', 'Partial One', ['class' => 'wel']) !!}
                         {!! Form::text('partial_one', null, ['class' => 'form-control', 'placeholder' => 'Partial One => 25 %', 'required']) !!}
                     </div>
                     <br>
@@ -41,7 +41,7 @@
                     @enderror
 
                     <div class="form-group">
-                        {!! Form::label('partial_two', 'Partial Two') !!}
+                        {!! Form::label('partial_two', 'Partial Two', ['class' => 'wel']) !!}
                         {!! Form::text('partial_two', null, ['class' => 'form-control', 'placeholder' => 'Partial Two => 25 %', 'required']) !!}
                     </div>
                     <br>
@@ -69,21 +69,21 @@
                 {!! Form::open(['route' => 'tracingEdit']) !!}
 
                     <div class="form-group">
-                        {!! Form::label('group', 'Group') !!}
+                        {!! Form::label('group', 'Group', ['class' => 'wel']) !!}
                         {!! Form::text('group', $group->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_group', $group->id, array('id' => 'invisible_id_group')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('student', 'Student') !!}
+                        {!! Form::label('student', 'Student', ['class' => 'wel']) !!}
                         {!! Form::text('student', $student->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_student', $student->id, array('id' => 'invisible_id_student')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('tracing', 'Tracing') !!}
+                        {!! Form::label('tracing', 'Tracing', ['class' => 'wel']) !!}
                         {!! Form::text('tracing', $traicing->tracing, ['class' => 'form-control', 'placeholder' => 'Tracing => 50 %', 'required']) !!}
                     </div>
                     <br>
@@ -93,7 +93,7 @@
                     @enderror
 
                     <div class="form-group">
-                        {!! Form::label('partial_one', 'Partial One') !!}
+                        {!! Form::label('partial_one', 'Partial One', ['class' => 'wel']) !!}
                         {!! Form::text('partial_one', $traicing->partial_one, ['class' => 'form-control', 'placeholder' => 'Partial One => 25 %', 'required']) !!}
                     </div>
                     <br>
@@ -103,7 +103,7 @@
                     @enderror
 
                     <div class="form-group">
-                        {!! Form::label('partial_two', 'Partial Two') !!}
+                        {!! Form::label('partial_two', 'Partial Two', ['class' => 'wel']) !!}
                         {!! Form::text('partial_two', $traicing->partial_two, ['class' => 'form-control', 'placeholder' => 'Partial Two => 25 %', 'required']) !!}
                     </div>
                     <br>
@@ -130,33 +130,33 @@
             <div class="card-body">
 
                     <div class="form-group">
-                        {!! Form::label('group', 'Group') !!}
+                        {!! Form::label('group', 'Group', ['class' => 'wel']) !!}
                         {!! Form::text('group', $group->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_group', $group->id, array('id' => 'invisible_id_group')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('student', 'Student') !!}
+                        {!! Form::label('student', 'Student', ['class' => 'wel']) !!}
                         {!! Form::text('student', $student->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_student', $student->id, array('id' => 'invisible_id_student')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('tracing', 'Tracing') !!}
+                        {!! Form::label('tracing', 'Tracing', ['class' => 'wel']) !!}
                         {!! Form::text('tracing', $traicing->tracing, ['class' => 'form-control', 'placeholder' => 'Tracing => 50 %', 'required', 'disabled']) !!}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('partial_one', 'Partial One') !!}
+                        {!! Form::label('partial_one', 'Partial One', ['class' => 'wel']) !!}
                         {!! Form::text('partial_one', $traicing->partial_one, ['class' => 'form-control', 'placeholder' => 'Partial One => 25 %', 'required', 'disabled']) !!}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('partial_two', 'Partial Two') !!}
+                        {!! Form::label('partial_two', 'Partial Two', ['class' => 'wel']) !!}
                         {!! Form::text('partial_two', $traicing->partial_two, ['class' => 'form-control', 'placeholder' => 'Partial Two => 25 %', 'required', 'disabled']) !!}
                     </div>
                     <br>
@@ -241,7 +241,9 @@
         color: #f1eded;
         transition: all 1.5s ease;
     }
-
+    .wel{
+        color: black;
+    }
     .navi {
         background-color: #272727;
     }
@@ -256,6 +258,10 @@
 
     .centering {
         text-align: center;
+    }
+
+    .wel{
+        color: black;
     }
 
     .button {
