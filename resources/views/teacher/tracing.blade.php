@@ -13,21 +13,21 @@
                 {!! Form::open(['route' => 'teacher.store']) !!}
 
                     <div class="form-group">
-                        {!! Form::label('group', 'Group') !!}
+                        {!! Form::label('group', 'Group', ['class' => 'wel']) !!}
                         {!! Form::text('group', $group->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_group', $group->id, array('id' => 'invisible_id_group')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('student', 'Student') !!}
+                        {!! Form::label('student', 'Student', ['class' => 'wel']) !!}
                         {!! Form::text('student', $student->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_student', $student->id, array('id' => 'invisible_id_student')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('tracing', 'Tracing') !!}
+                        {!! Form::label('tracing', 'Tracing', ['class' => 'wel']) !!}
                         {!! Form::text('tracing', null, ['class' => 'form-control', 'placeholder' => 'Tracing => 50 %', 'required']) !!}
                     </div>
                     <br>
@@ -37,7 +37,7 @@
                     @enderror
 
                     <div class="form-group">
-                        {!! Form::label('partial_one', 'Partial One') !!}
+                        {!! Form::label('partial_one', 'Partial One', ['class' => 'wel']) !!}
                         {!! Form::text('partial_one', null, ['class' => 'form-control', 'placeholder' => 'Partial One => 25 %', 'required']) !!}
                     </div>
                     <br>
@@ -47,7 +47,7 @@
                     @enderror
 
                     <div class="form-group">
-                        {!! Form::label('partial_two', 'Partial Two') !!}
+                        {!! Form::label('partial_two', 'Partial Two', ['class' => 'wel']) !!}
                         {!! Form::text('partial_two', null, ['class' => 'form-control', 'placeholder' => 'Partial Two => 25 %', 'required']) !!}
                     </div>
                     <br>
@@ -56,9 +56,9 @@
                         <span class="text-danger">{{ $message }}*</span>
                     @enderror
 
-                    {!! Form::submit('Upload Notes', ['class' => 'btn btn-rounded btn-primary']) !!}
+                    {!! Form::submit('Upload Notes', ['class' => 'button2']) !!}
 
-                    <button class="btn btn-rounded btn-success" id="notes_final" onclick="final({{ $student->id }}, {{ $group->id }})">Notes Final</button>
+                    <button class="button" id="notes_final" onclick="final({{ $student->id }}, {{ $group->id }})">Notes Final</button>
                 {!! Form::close() !!}
             </div>
         </div>
@@ -75,21 +75,21 @@
                 {!! Form::open(['route' => 'tracingEdit']) !!}
 
                     <div class="form-group">
-                        {!! Form::label('group', 'Group') !!}
+                        {!! Form::label('group', 'Group', ['class' => 'wel']) !!}
                         {!! Form::text('group', $group->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_group', $group->id, array('id' => 'invisible_id_group')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('student', 'Student') !!}
+                        {!! Form::label('student', 'Student', ['class' => 'wel']) !!}
                         {!! Form::text('student', $student->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_student', $student->id, array('id' => 'invisible_id_student')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('tracing', 'Tracing') !!}
+                        {!! Form::label('tracing', 'Tracing', ['class' => 'wel']) !!}
                         {!! Form::text('tracing', $traicing->tracing, ['class' => 'form-control', 'placeholder' => 'Tracing => 50 %', 'required']) !!}
                     </div>
                     <br>
@@ -99,7 +99,7 @@
                     @enderror
 
                     <div class="form-group">
-                        {!! Form::label('partial_one', 'Partial One') !!}
+                        {!! Form::label('partial_one', 'Partial One', ['class' => 'wel']) !!}
                         {!! Form::text('partial_one', $traicing->partial_one, ['class' => 'form-control', 'placeholder' => 'Partial One => 25 %', 'required']) !!}
                     </div>
                     <br>
@@ -109,7 +109,7 @@
                     @enderror
 
                     <div class="form-group">
-                        {!! Form::label('partial_two', 'Partial Two') !!}
+                        {!! Form::label('partial_two', 'Partial Two', ['class' => 'wel']) !!}
                         {!! Form::text('partial_two', $traicing->partial_two, ['class' => 'form-control', 'placeholder' => 'Partial Two => 25 %', 'required']) !!}
                     </div>
                     <br>
@@ -118,9 +118,9 @@
                         <span class="text-danger">{{ $message }}*</span>
                     @enderror
 
-                    {!! Form::submit('Upload Notes', ['class' => 'btn btn-rounded btn-primary']) !!}
+                    {!! Form::submit('Upload Notes', ['class' => 'button2']) !!}
 
-                    <button class="btn btn-rounded btn-success" id="notes_final" onclick="final({{ $student->id }}, {{ $group->id }})">Notes Final</button>
+                    <button class="button" id="notes_final" onclick="final({{ $student->id }}, {{ $group->id }})">Notes Final</button>
                 {!! Form::close() !!}
             </div>
         </div>
@@ -136,33 +136,33 @@
             <div class="card-body">
 
                     <div class="form-group">
-                        {!! Form::label('group', 'Group') !!}
+                        {!! Form::label('group', 'Group', ['class' => 'wel']) !!}
                         {!! Form::text('group', $group->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_group', $group->id, array('id' => 'invisible_id_group')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('student', 'Student') !!}
+                        {!! Form::label('student', 'Student', ['class' => 'wel']) !!}
                         {!! Form::text('student', $student->name, ['class' => 'form-control', 'required', 'disabled']) !!}
                         {{ Form::hidden('invisible_student', $student->id, array('id' => 'invisible_id_student')) }}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('tracing', 'Tracing') !!}
+                        {!! Form::label('tracing', 'Tracing', ['class' => 'wel']) !!}
                         {!! Form::text('tracing', $traicing->tracing, ['class' => 'form-control', 'placeholder' => 'Tracing => 50 %', 'required', 'disabled']) !!}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('partial_one', 'Partial One') !!}
+                        {!! Form::label('partial_one', 'Partial One', ['class' => 'wel']) !!}
                         {!! Form::text('partial_one', $traicing->partial_one, ['class' => 'form-control', 'placeholder' => 'Partial One => 25 %', 'required', 'disabled']) !!}
                     </div>
                     <br>
 
                     <div class="form-group">
-                        {!! Form::label('partial_two', 'Partial Two') !!}
+                        {!! Form::label('partial_two', 'Partial Two', ['class' => 'wel']) !!}
                         {!! Form::text('partial_two', $traicing->partial_two, ['class' => 'form-control', 'placeholder' => 'Partial Two => 25 %', 'required', 'disabled']) !!}
                     </div>
                     <br>
@@ -224,10 +224,6 @@
                 }
             })
     }
-
-
-
-
 </script>
 
 <style>
@@ -247,7 +243,9 @@
         color: #f1eded;
         transition: all 1.5s ease;
     }
-
+    .wel{
+        color: black;
+    }
     .navi {
         background-color: #272727;
     }
@@ -264,38 +262,75 @@
         text-align: center;
     }
 
-    .anime {
-        animation-duration: 3s;
-        animation-name: slidein;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
+    .wel{
+        color: black;
     }
 
-    .h1 {
-        text-shadow:
-            3px 3px 1px #272727,
-            5px 5px 2px white,
-            8px 8px 3px rgba(84, 49, 27);
-        ;
-    }
+    .button {
+            background: linear-gradient(to bottom right, rgb(106, 255, 0), rgba(28, 27, 23));
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
 
-    .text-gradient {
-        color: transparent;
-        background-image: linear-gradient(to left, #272727, #3498db, rgba(84, 49, 27));
-        background-clip: text;
-        animation: color 5s linear infinite;
-        background-size: 500%;
-    }
-
-    @keyframes color {
-        from {
-            background-position: 0% 50%;
+            width: auto;
+            height: auto;
         }
 
-        to {
-            background-position: 100% 50%;
+        .button:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
         }
-    }
+
+        .button:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .button2 {
+            background: linear-gradient(to bottom right, rgb(0, 204, 255), rgba(28, 27, 23));
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+
+            width: auto;
+            height: auto;
+        }
+
+        .button2:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .button2:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
 </style>
 
     

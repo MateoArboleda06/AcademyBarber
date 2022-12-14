@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <div>
-        <h1 class="welcome">Welcome to your Groups</h1>
+        <h1 class="wel">Welcome to your Groups</h1>
         <br>
 
         @foreach ($groups as $group)
@@ -65,14 +65,11 @@
         font-size: 28px;
     }
 
-    /*     .button {
-        position: relative;
-        background-color: #0a0a23;
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
-    } */
+    .wel {
+        text-align: center;
+        text-shadow: #603000 0.1em 0.1em 0.2em;
+        font-size: 26px;
+    }
 
     .button {
         background: linear-gradient(to bottom right, rgba(164, 120, 93), rgba(28, 27, 23));
@@ -141,30 +138,6 @@
     /*Cards*/
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 
-    /*     * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-    }
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        min-height: 100vh;
-        background: #232427;
-    }
-
-    body .cont {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        margin: 40px 0;
-    } */
     .column {
         float: left;
         width: 25%;

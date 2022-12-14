@@ -2,7 +2,6 @@
     <h1 class="wel">Courses Information {{ auth()->user()->name }}</h1>
     <br>
 
-
     <div class="card text-center">
         <div class="info card-header">
             <strong>
@@ -38,47 +37,6 @@
     </div>
 
     <br>
-    {{--     <div class="card text-center">
-        <div class="info card-header">
-            <strong>
-                <h2 class="text-white">Progress</h2>
-            </strong>
-        </div>
-
-        <div class="descrip card-body">
-            <div class="progress">
-                <div class="navi progress-bar" role="progressbar" aria-label="Example with label" style="width: 25%;"
-                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">20%</div>
-            </div>
-        </div>
-    </div> --}}
-
-{{--     <div class="card text-center">
-        <div class="info card-header">
-            <strong>
-                <h2 class="text-white">Progress</h2>
-            </strong>
-        </div>
-
-        <div class="descrip card-body">
-            <div class="porcentaje">
-                <div class="container">
-                    <div class="box">
-                        <div class="porcent">
-                            <svg>
-                                <circle cx="70" cy="70" r="70" />
-                                <circle cx="70" cy="70" r="70" />
-                            </svg>
-                            <div class="number">
-                                <h2>20<span>%</span></h2>
-                            </div>
-                            <h3 class="text">Html</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
 
     <div class="card text-center">
         <div class="info card-header">
@@ -112,13 +70,6 @@
 </x-app-layout>
 
 <style>
-/*     .welcome {
-        text-align: center;
-        color: white;
-        text-shadow: black 0.1em 0.1em 0.2em;
-        font-size: 26px;
-    } */
-
     .wel {
         text-align: center;
         text-shadow: #603000 0.1em 0.1em 0.2em;
@@ -302,127 +253,4 @@
         color: #fff;
         font-size: 1.5rem;
     }
-
-/*     .porcentaje {
-        display: flex;
-        justify-content: center;
-        align-items: center;       
-    }
-
-    .container {
-        position: relative;
-        width: 960px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .porcent {
-        position: relative;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        box-shadow: inset 0 0 50px #fff;
-        background: rgb(255, 255, 255);
-        z-index: 1000;
-    }
-
-    .porcent .number {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-    }
-
-    .porcent .number h2 {
-        color: #000;
-        font-weight: 700;
-        font-size: 40px;
-        transition: 0.5s;
-    }
-
-    .card:hover .porcent .number h2 {
-        color: rgb(0, 0, 0);
-        font-size: 53px;
-    }
-
-    .porcent .number h2 span {
-        color: rgb(0, 0, 0);
-    }
-
-    .text {
-        position: relative;
-        color: rgb(0, 0, 0);
-        margin-top: 20px;
-        font-weight: 700;
-        font-size: 18px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        transition: 0.5s;
-    }
-
-    svg {
-        position: relative;
-        width: 150px;
-        height: 150px;
-        transform: rotate(-85deg) !important;
-    }
-
-    svg circle {
-        width: 100%;
-        height: 100%;
-        fill: none;
-        stroke: #603000;
-        stroke-width: 10;
-        stroke-linecap: round !important;
-        transform: translate(5px, 5px);
-    }
-
-    /*Claculo para simular el porcent*/
-/*     svg circle:nth-child(2) {
-        stroke-dasharray: 440;
-        stroke-dashoffset: 440;
-    }
-
-
-    .card:nth-child(1) svg circle:nth-child(2) {
-        stroke-dashoffset: calc(440 - (440 * 80)/100);
-        stroke: rgb(255, 0, 0);
-    }
-
-    @media only screen and (max-width:600px) {
-        .porcentaje {
-            height: auto;
-            margin-left: 30px;
-            flex-flow: row wrap;
-        }
-    }
-
-    @media screen and(max-width: 1068px) {
-        .container {
-            max-width: 80rem;
-            min-width: 70rem;
-        }
-
-    }
-
-    @media screen and (max-width: 868px) {
-
-        .container {
-            max-width: 80rem;
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-
-        .container {
-            padding: 2.5rem;
-            flex-direction: column;
-            margin-top: 20px;
-        }
-    } */
 </style>

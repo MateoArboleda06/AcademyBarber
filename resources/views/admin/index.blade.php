@@ -3,7 +3,7 @@
 @section('title', 'Admin')
 
 @section('content_header')
-    <h1 class="text-gradient centering">Barber Academy / Admin</h1>
+    <h1 class="h1 centering">Barber Academy / Admin</h1>
 @stop
 
 @section('content')

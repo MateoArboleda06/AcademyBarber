@@ -34,17 +34,6 @@
             @enderror
 
             <br>
-            {{-- <label>
-            Teacher Name:
-            <br>
-            <input type="text" name="teacher" value="{{ old('teacher') }}">
-        </label>
-
-        @error('teacher')
-            <br>
-            <small style="color red">*{{ $message }}</small>
-            <br>
-        @enderror --}}
 
             <br>
             <label>

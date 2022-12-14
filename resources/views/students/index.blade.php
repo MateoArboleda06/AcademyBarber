@@ -1,12 +1,5 @@
 <x-app-layout>
 
-    {{--     <div class="about-section">
-        <h4 class="text-2xl">Occupational Profile</h4>
-        <br>
-        <p>Perform haircuts and changes of hair shapes, apply color techniques, integral stylist and colorist,
-            makeup artist and hairstylist, image consultant, seller of products and services for hair hygiene.</p>
-    </div> --}}
-
     <div class="w-full p-4 text-center border rounded-lg shadow-md sm:p-8 about-section">
         <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Program Description</h5>
         <br>
@@ -244,31 +237,6 @@
 
     /*Cards*/
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
-
-    /*     * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-    }
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        min-height: 100vh;
-        background: #232427;
-    }
-
-    body .cont {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        margin: 40px 0;
-    } */
     .column {
         float: left;
         width: 25%;

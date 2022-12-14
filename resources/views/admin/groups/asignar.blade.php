@@ -37,8 +37,8 @@
                                 <td>{{ $usuario->id }}</td>
                                 <td>{{ $usuario->name }}</td>
                                 <td>
-                                    <button class="button1" id="asignar_student_{{ $usuario->id }}" onclick="asignados({{ $usuario->id }})">Asignement</button>
-                                    <button class="button2" id="desasignar_student_{{ $usuario->id }}" onclick="desasignados({{ $usuario->id }})">Cancel</button>
+                                    <button class="btn btn-warning" id="asignar_student_{{ $usuario->id }}" onclick="asignados({{ $usuario->id }})">Asignement</button>
+                                    <button class="btn btn-danger" id="desasignar_student_{{ $usuario->id }}" onclick="desasignados({{ $usuario->id }})">Cancel</button>
                                 </td>
                             </tr>
                         @endforeach

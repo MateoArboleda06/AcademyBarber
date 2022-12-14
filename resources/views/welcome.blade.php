@@ -1,17 +1,6 @@
 <x-app-layout>
-    <div class="flex items-center justify-center"><img src="academ.png" alt="" style="width:30%"
+    <div class="image flex items-center justify-center"><img src="academ.png" alt="" style="width:30%"
             class="card-img-top"></div>
-
-    {{--     <div class="about-section">
-        <h4 class="text-2xl">About Us Page</h4>
-        <br>
-        <p>The Barber Academy is an educational platform which simplifies the administrative processes
-            for students on the one hand, and offers students an accessible and flexible e-learning environment on the
-            other.</p>
-    </div> --}}
-
-    
-    {{-- <h4 class="welcome text-2xl">Our Team</h4> --}}
 
     <div class="team">
         <div class="sticky-lg">
@@ -19,6 +8,33 @@
         </div>
     </div>
 
+    @if (is_null(auth()->user()))
+        <audio id="au" controls preload autoplay style="visibility:hidden">
+            <source src="audiowelcome.mp3" type="audio/mpeg">
+            Tu navegador no soporta audio HTML5.
+        </audio>
+    @endif
+    @if (!is_null(auth()->user()))
+        @if (auth()->user()->roles[0]->name == 'Teacher')
+            <audio id="au" controls preload autoplay style="visibility:hidden">
+                <source src="audioteacher.mp3" type="audio/mpeg">
+                Tu navegador no soporta audio HTML5.
+            </audio>
+        @endif
+        @if (auth()->user()->roles[0]->name == 'Student')
+            <audio id="au" controls preload autoplay style="visibility:hidden">
+                <source src="audiostudent.mp3" type="audio/mpeg">
+                Tu navegador no soporta audio HTML5.
+            </audio>
+        @endif
+        @if (auth()->user()->roles[0]->name == 'Admin')
+            <audio id="au" controls preload autoplay style="visibility:hidden">
+                <source src="audioadmin.mp3" type="audio/mpeg">
+                Tu navegador no soporta audio HTML5.
+            </audio>
+        @endif
+    @endif
+    
     <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
 
         <div class="">
@@ -31,7 +47,8 @@
                 <div class="face back">
                     <h3>Mateo Arboleda</h3>
                     <p class="title">Scrum Master</p>
-                    <p>Scrum team trainer and facilitator. It helps the team stay focused on the project objectives and
+                    <p>Scrum team trainer and facilitator. It helps the team stay focused on the project objectives
+                        and
                         eliminate impediments that appear along the way.</p>
                     <p>mateo_arboleda82181@elpoli.edu.co</p>
                 </div>
@@ -83,20 +100,16 @@
             <div class="box">
                 <h2>About Us Page</h2>
                 <p>The Barber Academy is an educational platform which simplifies the administrative processes
-                    for students on the one hand, and offers students an accessible and flexible e-learning environment
+                    for students on the one hand, and offers students an accessible and flexible e-learning
+                    environment
                     on the
                     other</p>
             </div>
             <div class="box">
                 <h2>CONTACT US</h2>
-                {{--                 <div class="red-social">
-                    <a href="https://wa.me/+573016389477" class="fa-brands fa-whatsapp"></a>
-                </div> --}}
-{{--                 <section class="buttons">
-                    <a href="https://wa.me/+573016389477" class="fa-brands fa-whatsapp"></a>
-                </section> --}}
                 <section class="buttons">
-                    <a href="https://wa.me/+573016389477?text=Hola%20¿%20Cómo%20estás?" class="fa-brands fa-whatsapp"></a>
+                    <a href="https://wa.me/+573016389477?text=Hi,%20¿%20How%20are%20you?"
+                        class="fa-brands fa-whatsapp"></a>
                 </section>
             </div>
         </div>
@@ -105,3 +118,28 @@
         </div>
     </x-slot:footer>
 </x-app-layout>
+
+<style>
+    .image {
+        animation: animate1 7s linear infinite;
+    }
+
+    @keyframes animate1 {
+
+        0%,
+        100% {
+            transform: translateY(11px);
+        }
+
+        50% {
+            transform: translateY(-11px);
+        }
+    }
+</style>
+
+<script>
+    $(document).ready(function() {
+        var audi = document.getElementById("au");
+        audi.play();
+    });
+</script>
