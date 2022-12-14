@@ -35,33 +35,44 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($groups as $group)
-                        <tr>
-                            <td>{{ $group->id }}</td>
-                            <td>{{ $group->name }}</td>
-                            <td>{{ $group->teacher }}</td>
-                            <td>{{ $group->course }}</td>
-                            <td>{{ $group->schedule }}</td>
-                            <td width="10px">
-                                <a class="button3" href="{{ route('list_students', $group->id) }}">See</a>
-                            </td>
-                            <td width="10px">
-                                {{-- <a class="btn btn-primary btn-sm" href="{{ route('list_students', $group->id) }}">See</a> --}}
-                                <a class="button" href="{{ route('admin.groups.edit', $group) }}">Edit</a>
-                            </td>
-                            <td width="10px">
-                                <form action="{{ route('admin.groups.destroy', $group) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
+                    @if (!is_null($groups))
+                        
+                        @foreach ($groups as $group)
+                            <tr>
+                                <td>{{ $group->id }}</td>
+                                <td>{{ $group->name }}</td>
+                                <td>{{ $group->teacher }}</td>
+                                <td>{{ $group->course }}</td>
+                                <td>{{ $group->schedule }}</td>
+                                <td width="10px">
+                                    <a class="button3" href="{{ route('list_students', $group->id) }}">See</a>
+                                </td>
+                                <td width="10px">
+                                    {{-- <a class="btn btn-primary btn-sm" href="{{ route('list_students', $group->id) }}">See</a> --}}
+                                    <a class="button" href="{{ route('admin.groups.edit', $group) }}">Edit</a>
+                                </td>
+                                <td width="10px">
+                                    <form action="{{ route('admin.groups.destroy', $group) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
 
-                                    <button class="button2" type="submit">Delete</button>
-                                </form>
-                            </td>
-                            <td>
+                                        <button class="button2" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                                <td>
 
-                            </td>
-                        </tr>
-                    @endforeach
+                                </td>
+                            </tr>
+                        @endforeach
+
+                    @else
+
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                    @endif
                 </tbody>
             </table>
         </div>

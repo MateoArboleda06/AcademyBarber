@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backup;
 use App\Models\Course;
 use App\Models\Group;
 use App\Models\Ratings;
@@ -26,6 +27,8 @@ class GroupsController extends Controller
     public function index()
     {
         $groups = Group::all();
+
+        // $groups = null;
 
         return view('admin.groups.index', compact('groups'));
     }
@@ -57,13 +60,12 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
+        // dd($request);
         $request->validate([
             'name' => 'required',
             'schedule' => 'required',
             'teacher' => 'required',
-            'course' => 'required',
-            
+            'course' => 'required', 
         ]);
 
         if ($request->schedule == 0) {
@@ -73,6 +75,7 @@ class GroupsController extends Controller
             $teacher = User::find(request('teacher', null));
 
             //dd($teacher);
+            // dd($course);
             
             $group = Group::create([
                 'name' => request('name', null),
@@ -83,6 +86,14 @@ class GroupsController extends Controller
                 'teacher_id' => request('teacher', null)
             ]);
 
+            // dd($group->id);
+
+            $course->teacher = $teacher->name;
+            $course->group = $group->id;
+
+            $course->save();
+
+
             return redirect()->route('admin.groups.edit', $group)->with('info', 'The group was successfully created');
         } elseif ($request->schedule == 1) {
 
@@ -90,7 +101,8 @@ class GroupsController extends Controller
 
             $teacher = User::find(request('teacher', null));
 
-            //dd($teacher);
+            // dd($teacher);
+            // dd($course);
             
             $group = Group::create([
                 'name' => request('name', null),
@@ -100,6 +112,12 @@ class GroupsController extends Controller
                 'course_id' => request('course', null),
                 'teacher_id' => request('teacher', null)
             ]);
+
+            $course->teacher = $teacher->name;
+            $course->group = $group->id;
+
+            $course->save();
+
             return redirect()->route('admin.groups.edit', $group)->with('info', 'The group was successfully created');
         }
 
@@ -117,6 +135,11 @@ class GroupsController extends Controller
             'course_id' => request('course', null),
             'teacher_id' => request('teacher', null)
         ]);
+
+        $course->teacher = $teacher->name;
+        $course->group = $group->id;
+
+        $course->save();
             
         return redirect()->route('admin.groups.edit', $group)->with('info', 'The group was successfully created');
     }
@@ -141,7 +164,7 @@ class GroupsController extends Controller
     public function edit(Group $group)
     {
 
-        //dd($group);
+        // dd($group);
         $usuarios = User::select('users.name', 'users.id')
                         ->join('model_has_roles', 'users.id', '=', 'model_id')
                         ->where('role_id', '=', 3)
@@ -167,8 +190,7 @@ class GroupsController extends Controller
             'name' => 'required',
             'schedule' => 'required',
             'teacher' => 'required',
-            'course' => 'required',
-            
+            'course' => 'required',   
         ]);
 
         $group = Group::find($request->group->id);
@@ -212,6 +234,20 @@ class GroupsController extends Controller
     public function asignar(Request $request){
 
         // dd($request);
+        // dd(now()->timestamp);
+
+        // $order = Order::find(\DB::table('orders')->max('id'));
+
+        /* $backup_mayor = Backup::where('id_user', 4)
+                    ->where('id_course', 3)->max('fecha'); */
+
+        // dd($backup->status);
+
+        /* $backup = Backup::where('id_user', 4)
+                        ->where('id_course', 3)
+                        ->where('fecha', $backup_mayor)->first();
+
+        dd($backup); */
         
         try {
             
@@ -237,48 +273,72 @@ class GroupsController extends Controller
                 $cont = DB::table('group_user')
                             ->where('group_id', request('group', null))
                             ->where('user_id', $asignado)->count();
+                $backup_mayor = Backup::where('id_user', $asignado)
+                                ->where('id_course', $course->id)->max('fecha');
 
+                $backup = Backup::where('id_user', $asignado)
+                                ->where('id_course', $course->id)
+                                ->where('fecha', $backup_mayor)->first();
+
+                // dd($backup);
                 // dd($cont);
                 // dd($record);
 
                 if($cont == 0){
 
-                    if(is_null($record)){
-                        // dd('hola 1');
-                        $group->users()->attach($asignado);
+                    if(!is_null($backup)){
+
+                        if($backup->status == 'Reprobado'){
     
+                            if(is_null($record)){
+                                // dd('hola 1');
+                                $group->users()->attach($asignado);
+            
+                                Record::create([
+                                    'id_user' => $asignado,
+                                    'id_course' => $course->id,
+                                    'num_viewd' => $i
+                                ]);
+        
+                                Ratings::create([
+                                    'id_user' => $asignado,
+                                    'id_group' => $group->id,
+                                    'status' => "In Process..."
+                                ]);
+                            } elseif($record->num_viewd == 0){
+                                // dd($record);
+            
+                                $group->users()->attach($asignado);
+            
+                                $record->num_viewd = $i+1;
+                                $record->save();
+        
+                                Ratings::create([
+                                    'id_user' => $asignado,
+                                    'id_group' => $group->id,
+                                    'status' => "In Process..."
+                                ]);
+                            } else {
+
+                                $record->num_viewd = $i+2;
+                                $record->save();
+        
+                                return response()->json('num_viewd_max');
+                            }
+                        } else {
+    
+                            return response()->json('aprobado');
+                        }
+                    } else {
+
+                        $group->users()->attach($asignado);
+                
                         Record::create([
                             'id_user' => $asignado,
                             'id_course' => $course->id,
                             'num_viewd' => $i
                         ]);
-
-                        Ratings::create([
-                            'id_user' => $asignado,
-                            'id_group' => $group->id,
-                            'status' => "In Process..."
-                        ]);
-                    } elseif($record->num_viewd == 0){
-                        // dd($record);
     
-                        $group->users()->attach($asignado);
-    
-                        $record->num_viewd = $i+1;
-                        $record->save();
-
-                        Ratings::create([
-                            'id_user' => $asignado,
-                            'id_group' => $group->id,
-                            'status' => "In Process..."
-                        ]);
-                    } else  if($record->num_viewd == 1){
-                        // dd('hola 3');
-    
-                        $group->users()->attach($asignado);
-    
-                        $record->num_viewd = $i+2;
-                        $record->save();
-
                         Ratings::create([
                             'id_user' => $asignado,
                             'id_group' => $group->id,

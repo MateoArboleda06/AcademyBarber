@@ -11,10 +11,16 @@
         </div>
 
         <div class="descrip card-body">
-            <strong>Course: </strong>{{ $courses1->name }} <br>
-            <strong>Semester: </strong>{{ $courses1->semester }} <br>
-            <strong>Teacher: </strong>{{ $course1[0]->teacher }} <br>
-            <strong>Group: </strong>{{ $course1[0]->name }}
+            @foreach ($courses as $course)
+
+                @if ($course['schedule'] == 'Mañana')
+                    
+                    <strong>Course: </strong>{{ $course['course'] }} <br>
+                    <strong>Teacher: </strong>{{ $course['teacher'] }} <br>
+                    <strong>Group: </strong>{{ $course['name'] }}
+                @endif
+                
+            @endforeach
         </div>
     </div>
     <br>
@@ -27,10 +33,16 @@
         </div>
 
         <div class="descrip card-body">
-            <strong>Course: </strong>{{ $courses2->name }} <br>
-            <strong>Semester: </strong>{{ $courses2->semester }} <br>
-            <strong>Teacher: </strong>{{ $course2[0]->teacher }} <br>
-            <strong>Group: </strong>{{ $course2[0]->name }}
+            @foreach ($courses as $course)
+
+                @if ($course['schedule'] == 'Tarde')
+                    
+                    <strong>Course: </strong>{{ $course['course'] }} <br>
+                    <strong>Teacher: </strong>{{ $course['teacher'] }} <br>
+                    <strong>Group: </strong>{{ $course['name'] }}
+                @endif
+                
+            @endforeach
         </div>
     </div>
     <br>
@@ -43,10 +55,16 @@
         </div>
 
         <div class="descrip card-body">
-            <strong>Course: </strong>{{ $courses3->name }} <br>
-            <strong>Semester: </strong>{{ $courses3->semester }} <br>
-            <strong>Teacher: </strong>{{ $course3[0]->teacher }} <br>
-            <strong>Group: </strong>{{ $course3[0]->name }}
+            @foreach ($courses as $course)
+
+                @if ($course['schedule'] == 'Noche')
+                    
+                    <strong>Course: </strong>{{ $course['course'] }} <br>
+                    <strong>Teacher: </strong>{{ $course['teacher'] }} <br>
+                    <strong>Group: </strong>{{ $course['name'] }}
+                @endif
+                
+            @endforeach
         </div>
     </div>
 

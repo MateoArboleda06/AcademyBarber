@@ -19,7 +19,7 @@
             {!! Form::open(['route' => 'admin.groups.store']) !!}
 
                 <div class="form-group">
-                    {!! Form::label('name', 'Name') !!}
+                    {!! Form::label('name', 'Name*') !!}
                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name Group', 'required']) !!}
                 </div>
 
@@ -28,7 +28,7 @@
                 @enderror
 
                 <div class="form-group">
-                    {!! Form::label('schedule', 'Schedule') !!}
+                    {!! Form::label('schedule', 'Schedule*') !!}
                     {{ Form::select('schedule', ['Mañana', 'Tarde', 'Noche'], null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'schedule', 'required', 'placeholder' => 'Select.....']) }}
                 </div>
 
@@ -37,7 +37,7 @@
                 @enderror
 
                 <div class="form-group">
-                    {!! Form::label('teacher', 'Teacher') !!}
+                    {!! Form::label('teacher', 'Teacher*') !!}
                     {{ Form::select('teacher', $usuarios, null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'teacher', 'required', 'placeholder' => 'Select.....']) }}
                 </div>
 
@@ -46,7 +46,7 @@
                 @enderror
 
                 <div class="form-group">
-                    {!! Form::label('course', 'Course') !!}
+                    {!! Form::label('course', 'Course*') !!}
                     {{ Form::select('course', $courses, null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'course', 'required', 'placeholder' => 'Select.....']) }}
                 </div>
 
@@ -163,13 +163,5 @@
 @stop
 
 @section('js')
-    <script> 
-
-        $('.select2').select2({
-            'placeholder': 'Select.....'
-        });
-
-        //$('select[name="teacher"] option:selected').text()
-
-    </script>
+    
 @stop

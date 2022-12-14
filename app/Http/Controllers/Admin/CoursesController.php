@@ -23,6 +23,8 @@ class CoursesController extends Controller
     {
         $courses = Course::all();
 
+        // $courses = null;
+
         return view('admin.courses.index', compact('courses'));
     }
 
@@ -53,13 +55,13 @@ class CoursesController extends Controller
         $request->validate([
             'name' => 'required',
             'semester' => 'required',
-            'teacher' => 'required',
+            'description' => 'required',
         ]);
 
         $course = Course::create([
             'name' => request('name', null),
             'semester' => request('semester', null),
-            'teacher' => request('teacher', null)
+            'description' => request('description', null)
         ]);
 
         return redirect()->route('admin.courses.edit', $course)->with('info', 'The course was successfully created');
@@ -104,7 +106,7 @@ class CoursesController extends Controller
         $request->validate([
             'name' => 'required',
             'semester' => 'required',
-            'teacher' => 'required'
+            'description' => 'required',
         ]);
 
         $course = Course::find($request->course->id);

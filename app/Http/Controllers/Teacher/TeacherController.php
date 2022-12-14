@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backup;
 use App\Models\Group;
 use App\Models\Ratings;
 use App\Models\Record;
@@ -140,6 +141,9 @@ class TeacherController extends Controller
         } */
 
         // dd('hola');
+        $rating->tracing = $request->tracing;
+        $rating->partial_one = $request->partial_one;
+        $rating->partial_two = $request->partial_two;
 
         $rating->final = $request->final;
         $rating->status = $request->status;
@@ -151,11 +155,25 @@ class TeacherController extends Controller
 
     public function endCourse(Request $request){
 
-        // dd($request->list_students[0]['name']); 
+        // dd($request);
         
         foreach ($request->list_students as $student) {
 
             // dd($student['id']);
+
+            $group_course = Group::where('id', request('id_group', null))->first();
+            $rating = Ratings::where('id_group', request('id_group', null))
+                                ->where('id_user', $student['id'])->first();
+            // dd($rating);
+            // dd($group_course);
+
+            Backup::create([
+                'id_user' => $student['id'],
+                'id_course' => $group_course->course_id,
+                'final' => $rating->final,
+                'status' => $rating->status,
+                'fecha' => now()->timestamp
+            ]);
 
             DB::table('group_user')->where('group_id', request('id_group', null))
                                     ->where('user_id', $student['id'])->delete();

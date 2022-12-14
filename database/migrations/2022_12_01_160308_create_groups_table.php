@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
 		    $table->string('schedule');
-            $table->string('course')->nullable();
-            $table->string('teacher')->nullable();
-            $table->unsignedBigInteger('course_id')->nullable();
-            $table->unsignedBigInteger('teacher_id')->nullable();
+            $table->string('course');
+            $table->string('teacher');
+            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('teacher_id');
             $table->timestamps();
 
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');

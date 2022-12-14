@@ -53,8 +53,6 @@
             </div>
             <div class="descrip card-body">
                 <li class="card-text">{{ $course->description }}</li>
-                <li class="card-text">Selection of hair and scalp treatment techniques according to established assessment and protocol.</li>
-                <li class="card-text">Prepare and perform the hair procedure taking into account the technical protocol, biosecurity and safety standards.</li>
             </div>
         </div>
 
@@ -65,11 +63,22 @@
                 Notes
             </div>
             <div class="descrip card-body">
-                <h5 class="card-title" style="font-weight: bold">Partial 1: <normal style="font-weight: normal">4.0</normal></h5>
-                <br>
-                <h5 class="card-title" style="font-weight: bold">Follow-up: <normal style="font-weight: normal"></normal></h5>
-                <br>
-                <h5 class="card-title" style="font-weight: bold">Partial 2: <normal style="font-weight: normal"></normal></h5>
+                @if (!is_null($ratings->tracing))
+
+                    <h5 class="card-title" style="font-weight: bold">Tracing: <normal style="font-weight: normal">{{ $ratings->tracing }}</normal></h5>
+                    <br>
+                    <h5 class="card-title" style="font-weight: bold">Partial One: <normal style="font-weight: normal">{{ $ratings->partial_one }}</normal></h5>
+                    <br>
+                    <h5 class="card-title" style="font-weight: bold">Partial Two: <normal style="font-weight: normal">{{ $ratings->partial_two }}</normal></h5>
+                @else
+                
+                    <h5 class="card-title" style="font-weight: bold">Tracing: <normal style="font-weight: normal">Unrated</normal></h5>
+                    <br>
+                    <h5 class="card-title" style="font-weight: bold">Partial One: <normal style="font-weight: normal">Unrated</normal></h5>
+                    <br>
+                    <h5 class="card-title" style="font-weight: bold">Partial Two: <normal style="font-weight: normal">Unrated</normal></h5>
+
+                @endif
             </div>
         </div>
 

@@ -13,13 +13,14 @@
             <strong>{{ session('info') }}</strong>
         </div>
     @endif
+
     <div class="card">
         <div class="card-body">
             {!! Form::model($course, ['route' => ['admin.courses.update', $course], 'method' => 'put']) !!}
 
                 <div class="form-group">
-                    {!! Form::label('name', 'Name') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name Course', 'required']) !!}
+                    {!! Form::label('name', 'Name*') !!}
+                    {!! Form::text('name',  $course->name, ['class' => 'form-control', 'placeholder' => 'Name Course', 'required']) !!}
                     {{-- techaer --}}
                 </div>
 
@@ -28,8 +29,8 @@
                 @enderror
 
                 <div class="form-group">
-                    {!! Form::label('semester', 'Semester') !!}
-                    {!! Form::text('semester', null, ['class' => 'form-control', 'placeholder' => 'Semester Course', 'required']) !!}
+                    {!! Form::label('semester', 'Semester*') !!}
+                    {!! Form::text('semester',  $course->semester, ['class' => 'form-control', 'placeholder' => 'Semester Course', 'required']) !!}
                 </div>
 
                 @error('semester')
@@ -37,17 +38,8 @@
                 @enderror
 
                 <div class="form-group">
-                    {!! Form::label('teacher', 'Teacher') !!}
-                    {{ Form::select('teacher', $usuarios, null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'teacher', 'required', 'placeholder' => 'Select.....']) }}
-                </div>
-
-                @error('teacher')
-                    <span class="text-danger">{{ $message }}*</span>
-                @enderror
-
-                <div class="form-group">
-                    {!! Form::label('description', 'Description') !!}
-                    {!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Description Course', 'required']) !!}
+                    {!! Form::label('description', 'Description*') !!}
+                    {!! Form::textarea('description',  $course->description, ['class' => 'form-control', 'placeholder' => 'Description Course', 'required']) !!}
                 </div>
 
                 @error('description')
@@ -160,13 +152,5 @@
 @stop
 
 @section('js')
-    <script> 
-
-        $('.select2').select2({
-            'placeholder': 'Select.....'
-        });
-
-        //$('select[name="teacher"] option:selected').text()
-
-    </script>
+    
 @stop

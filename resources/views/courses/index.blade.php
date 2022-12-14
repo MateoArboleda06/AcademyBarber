@@ -3,36 +3,52 @@
     <div>
         <h1 class="wel">Welcome to Courses</h1>
         <br>
-{{--         <div class="flex justify-center">
-            <a href="{{ route('course.create') }}">
-                <button class="button">Create Course</button>
-            </a>
-        </div> --}}
 
-        @foreach ($array_courses as $course)
-            <div class="row cont column">
-                <div class="cards" style="width: 18rem;">
-                    <div class="box">
-                        <div class="content">
-                            <img src="academ.png" alt="" style="width:100%">
-                            <div class="card-body">
-                                <center>
-                                    <a href="{{ route('course.show', $course) }}">
-                                        <button class="button">{{ $course->name }}</button>
-                                    </a>
+        {{-- @php
+            dd(!empty($array_courses));
+        @endphp --}}
 
 
-                                    {{-- <p class="title"><strong>Semester:</strong>{{ $course->semester }}</p>
-                                    <p class="card-text"><strong>Teacher: </strong>{{ $course->teacher }}</p>
-                                    <p class="card-text">{{ $course->description }}</p> --}}
-                                </center>
+        @if (!is_null($array_courses) && !empty($array_courses))
+            
+            @foreach ($array_courses as $course)
+                <div class="row cont column">
+                    <div class="cards" style="width: 18rem;">
+                        <div class="box">
+                            <div class="content">
+                                <img src="academ.png" alt="" style="width:100%">
+                                <div class="card-body">
+                                    <center>
+                                        <a href="{{ route('course.show', $course) }}">
+                                            <button class="button">{{ $course->name }}</button>
+                                        </a>
 
+
+                                        {{-- <p class="title"><strong>Semester:</strong>{{ $course->semester }}</p>
+                                        <p class="card-text"><strong>Teacher: </strong>{{ $course->teacher }}</p>
+                                        <p class="card-text">{{ $course->description }}</p> --}}
+                                    </center>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            @endforeach
+            
+        @else
+
+                {{-- @php
+                    dd('hola');
+                @endphp --}}
+
+            <div class="div">
+                <h1 class="wel">You Nothing Courses</h1>    
             </div>
-        @endforeach
+            
+        
+        @endif
+
     </div>
 
     <x-slot:footer>

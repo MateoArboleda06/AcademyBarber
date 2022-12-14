@@ -12,7 +12,10 @@
 
         <div class="descrip card-body">
             <strong>Amount: </strong>{{ $cant_vistas }} Courses<br>
-            <strong>Names: </strong> {{ $name_viwed1[0]->name }}, {{ $name_viwed2[0]->name }}<br>
+
+            @foreach ($array_names_viewds as $array)
+                <strong>Name: </strong>{{ $array->name }}<br>
+            @endforeach
 
         </div>
     </div>
@@ -27,9 +30,9 @@
 
         <div class="descrip card-body">
             <strong>Amount: </strong>{{ $cant_faltantes }} Courses<br>
-            @foreach ($names_missed as $missed)
+           {{--  @foreach ($names_missed as $missed)
                 <strong>Name: </strong>{{ $missed->name }}<br>
-            @endforeach
+            @endforeach --}}
         </div>
 
     </div>

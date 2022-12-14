@@ -257,6 +257,16 @@
             console.log(asignado);
         }
 
+        function myFunctionAprobado() {
+            console.log('myFunctionAprobado');
+            alert('Usuario ya aprobo la materias');
+        }
+
+        function myFunctionReprobado() {
+            console.log('myFunctionReprobado');
+            alert('Usuario llego al limite de ver esta materia');
+        }
+
         $('#enviar_asignacion').click(function () {
 
             var group = $('#groups').val();
@@ -264,7 +274,7 @@
             $.ajax({
                 type: "POST",
                 url: "{{ route('save_asigned') }}",
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                 data: {
                     "list_students": asignado,
                     "group": group
@@ -275,6 +285,20 @@
                     if(response == 'success'){
 
                         window.location.reload();
+
+                        return;
+                    }
+
+                    if(response == 'num_viewd_max'){
+
+                        myFunctionReprobado();
+
+                        return;
+                    }
+
+                    if(response == 'aprobado'){
+
+                        myFunctionAprobado();
 
                         return;
                     }

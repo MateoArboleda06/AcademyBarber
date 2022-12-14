@@ -19,7 +19,7 @@
             {!! Form::open(['route' => 'admin.courses.store']) !!}
 
             <div class="form-group">
-                {!! Form::label('name', 'Name') !!}
+                {!! Form::label('name', 'Name*') !!}
                 {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name Course', 'required']) !!}
                 {{-- techaer --}}
             </div>
@@ -29,7 +29,7 @@
             @enderror
 
             <div class="form-group">
-                {!! Form::label('semester', 'Semester') !!}
+                {!! Form::label('semester', 'Semester*') !!}
                 {!! Form::text('semester', null, ['class' => 'form-control', 'placeholder' => 'Semester Course', 'required']) !!}
             </div>
 
@@ -38,16 +38,7 @@
             @enderror
 
             <div class="form-group">
-                {!! Form::label('teacher', 'Teacher') !!}
-                {{ Form::select('teacher', $usuarios, null, ['class' => 'form-control input-sm p-0 select2', 'id' => 'teacher', 'required', 'placeholder' => 'Select.....']) }}
-            </div>
-
-            @error('teacher')
-                <span class="text-danger">{{ $message }}*</span>
-            @enderror
-
-            <div class="form-group">
-                {!! Form::label('description', 'Description') !!}
+                {!! Form::label('description', 'Description*') !!}
                 {!! Form::textarea('description', null, [
                     'class' => 'form-control',
                     'placeholder' => 'Description Course',
@@ -166,11 +157,5 @@
 @stop
 
 @section('js')
-    <script>
-        $('.select2').select2({
-            'placeholder': 'Select.....'
-        });
-
-        //$('select[name="teacher"] option:selected').text()
-    </script>
+    
 @stop

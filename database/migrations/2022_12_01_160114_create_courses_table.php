@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique(); // varchar
             $table->string('semester');
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->string('teacher')->nullable();
             $table->string('group')->nullable();
             $table->rememberToken();

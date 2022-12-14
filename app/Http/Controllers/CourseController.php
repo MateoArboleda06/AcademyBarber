@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Backup;
 use App\Models\Course;
+use App\Models\Ratings;
+use App\Models\User;
 use Illuminate\Http\Request;
 use JeroenNoten\LaravelAdminLte\View\Components\Widget\Progress;
 
@@ -10,12 +13,21 @@ class CourseController extends Controller
 {
     public function index() { 
 
-        $courses1 = Course::where('name', 'Diagnosis and Hair Techniques')->first();
-        $courses2 = Course::where('name', 'Biosafety')->first();
-        $courses3 = Course::where('name', 'Entrepreneurship')->first();
+        $usuarios = User::where('id', auth()->user()->id)->first();
+        $courses = $usuarios->groups;
 
-        $array_courses = [$courses1, $courses2, $courses3];
-        //dd($array_courses);
+        $array_courses = [];
+        $i = 0;
+        // dd($courses[$i]['course']);
+
+        foreach($courses as $course){
+
+            $course_student = Course::where('name', $course['course'])->first();
+
+            $array_courses[] = $course_student;
+            $i++;
+        }
+        // dd($array_courses);
 
         return view('courses.index', compact('array_courses'));
     }
@@ -26,10 +38,18 @@ class CourseController extends Controller
 
     public function show($id) {
 
+        // dd($id);
+
         $course = Course::find($id);
+        $ratings = Ratings::where('id_user', auth()->user()->id)
+                            ->where('id_group', $course->group)->first();
+        
+        // dd($ratings);
+
         $course1 = $course->groups;
 
-        return view('courses.show', compact('course','course1'));
+
+        return view('courses.show', compact('course','course1','ratings'));
     }
 
     public function edit($id){
@@ -112,18 +132,23 @@ class CourseController extends Controller
 
     public function schedule(){
 
-        $courses1 = Course::where('name', 'Diagnosis and Hair Techniques')->first();
+        $usuarios = User::where('id', auth()->user()->id)->first();
+        $courses = $usuarios->groups;
+
+        // dd($courses);
+
+        /* $courses1 = Course::where('name', 'Diagnosis and Hair Techniques')->first();
         $courses2 = Course::where('name', 'Biosafety')->first();
-        $courses3 = Course::where('name', 'Entrepreneurship')->first();
+        $courses3 = Course::where('name', 'Entrepreneurship')->first(); */
 
         /* dd($courses1); */
-        $array_courses = [$courses1->groups, $courses2->groups, $courses3->groups];
+        // $array_courses = [$courses1->groups, $courses2->groups, $courses3->groups];
 
         $user = auth()->user()->name;
 
-        $course1 = $courses1->groups;
+        /* $course1 = $courses1->groups;
         $course2 = $courses2->groups;
-        $course3 = $courses3->groups;
+        $course3 = $courses3->groups; */
 
         //$courses1->groups;
 
@@ -131,20 +156,43 @@ class CourseController extends Controller
 
         //dd($array_courses);
 
-        return view('courses.schedule', compact('course1', 'course2', 'course3', 'courses1', 'courses2', 'courses3', 'user'));
+        return view('courses.schedule', compact('courses', 'user'));
     }
 
     public function informationCourse(){
+
+        $cant_vistas = Backup::where('id_user', auth()->user()->id)
+                                ->where('status', 'Aprobado')->count();
         
-        $cant_courses = Course::count();
+        $courses = Course::all()->count();
+
+        $cant_faltantes = $courses-$cant_vistas;
+
+        $user_groups = Backup::where('id_user', auth()->user()->id)
+                            ->where('status', 'Aprobado')->get();
+
+        // dd($user_group);
+        $array_names_viewds = [];
+        foreach($user_groups as $user_group){
+
+            $course_name = Course::where('id', $user_group->id_course)->first();
+            $array_names_viewds[] = $course_name;
+        };
+
+        
+        // dd($cant_faltantes);
+        // dd($courses);
+        // dd($cant_vistas);
+        
+        /* $cant_courses = Course::count();
         $cant_vistas = 2;
         $cant_faltantes = Course::where([['name', '!=', 'Sale and Consulting'], ['name', '!=', 'Hair Color Change Techniques']])->count();
         $name_viwed1 = Course::where('name', 'Sale and Consulting')->get();
         $name_viwed2 = Course::where('name', 'Hair Color Change Techniques')->get();
-        $names_missed = Course::where([['name', '!=', 'Sale and Consulting'], ['name', '!=', 'Hair Color Change Techniques']])->get();
+        $names_missed = Course::where([['name', '!=', 'Sale and Consulting'], ['name', '!=', 'Hair Color Change Techniques']])->get(); */
 
         $progress = (($cant_faltantes*10)-(($cant_faltantes+$cant_vistas)*10))*-1;
 
-        return view('courses.information', compact('cant_courses', 'cant_vistas', 'cant_faltantes', 'name_viwed1', 'name_viwed2', 'names_missed', 'progress'));
+        return view('courses.information', compact('cant_vistas', 'cant_faltantes', 'progress', 'array_names_viewds'));
     }
 }

@@ -34,26 +34,38 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($courses as $course)
-                        <tr>
-                            <td>{{ $course->id }}</td>
-                            <td>{{ $course->name }}</td>
-                            <td>{{ $course->semester }}</td>
-                            <td>{{ $course->teacher }}</td>
-                            <td>{{ $course->description }}</td>
-                            <td width="10px">
-                                <a class="button" href="{{ route('admin.courses.edit', $course) }}">Edit</a>
-                            </td>
-                            <td width="10px">
-                                <form action="{{ route('admin.courses.destroy', $course) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
+                    @if (!is_null($courses))
+                        
+                        @foreach ($courses as $course)
+                            <tr>
+                                <td>{{ $course->id }}</td>
+                                <td>{{ $course->name }}</td>
+                                <td>{{ $course->semester }}</td>
+                                <td>{{ $course->teacher }}</td>
+                                <td>{{ $course->description }}</td>
+                                <td width="10px">
+                                    <a class="button" href="{{ route('admin.courses.edit', $course) }}">Edit</a>
+                                </td>
+                                <td width="10px">
+                                    <form action="{{ route('admin.courses.destroy', $course) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
 
-                                    <button class="button2" type="submit">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
+                                        <button class="button2" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                    @else
+                            
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                    @endif
                 </tbody>
             </table>
         </div>
