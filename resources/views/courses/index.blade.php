@@ -3,11 +3,6 @@
     <div>
         <h1 class="wel">Welcome to Courses</h1>
         <br>
-        {{--         <div class="flex justify-center">
-            <a href="{{ route('course.create') }}">
-                <button class="button">Create Course</button>
-            </a>
-        </div> --}}
 
         {{-- @php
             dd(!empty($array_courses));
